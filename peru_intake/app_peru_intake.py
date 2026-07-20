@@ -189,9 +189,13 @@ with tab1:
     nombre_activista = ""
     region_activista = ""
     id_activista = ""
+    lugar_exacto = ""
+    tipo_punto = ""
+    latitud_gps = ""
+    longitud_gps = ""
     
     if "Activista" in modo_portal or "Captura en Campo" in modo_portal:
-        st.markdown("<div style='background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; padding: 14px 18px; border-radius: 12px; margin-bottom: 20px;'>🧑‍🌾 <b>Modo Activista Territorial Activo:</b> Formulario optimizado para captura ágil y pragmática en plazas, mercados y asambleas ciudadanas. Los datos ingresan al instante al padrón.</div>", unsafe_allow_html=True)
+        st.markdown("<div style='background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; padding: 14px 18px; border-radius: 12px; margin-bottom: 20px;'>🧑‍🌾 <b>Modo Activista Territorial Activo:</b> Formulario optimizado para captura ágil en plazas, mercados y asambleas ciudadanas. Los datos ingresan al instante al padrón.</div>", unsafe_allow_html=True)
         
         st.markdown("### 🧑‍🌾 Registro del Activista Territorial (Responsable del Levantamiento)")
         c_act1, c_act2, c_act3 = st.columns(3)
@@ -201,6 +205,21 @@ with tab1:
             region_activista = st.selectbox("📍 Región Base / Asignada al Activista:", REGIONES_PERU, key="t1_region_act")
         with c_act3:
             id_activista = st.text_input("📱 Celular / DNI o ID de Contacto (Opcional):", placeholder="Ej. 987654321", key="t1_id_act")
+            
+        st.markdown("#### 🗺️ Georeferenciación del Punto de Levantamiento en Campo")
+        c_geo1, c_geo2, c_geo3 = st.columns([2, 1.3, 1.3])
+        with c_geo1:
+            lugar_exacto = st.text_input("📍 Lugar del Levantamiento (Plaza, Mercado, Comunidad, Barrio):", placeholder="Ej. Plaza de Armas de Huamanga / Mercado Belén", key="t1_lugar_geo")
+        with c_geo2:
+            tipo_punto = st.selectbox("🏘️ Tipo de Espacio Social:", ["Plaza / Parque Público", "Mercado / Feria Comercial", "Asamblea Comunal / Sindicato", "Universidad / Instituto / Colegio", "Visita Domiciliaria / Barrio", "Paradero / Terminal Terrestre", "Otro Punto de Encuentro"], key="t1_tipo_geo")
+        with c_geo3:
+            st.markdown("<div style='font-size:0.8rem; color:#A1A1AA; margin-bottom:4px;'>Coordenadas GPS (Opcional):</div>", unsafe_allow_html=True)
+            c_lat, c_lon = st.columns(2)
+            with c_lat:
+                latitud_gps = st.text_input("Latitud (-12.04)", placeholder="-12.0463", key="t1_lat_geo", label_visibility="collapsed")
+            with c_lon:
+                longitud_gps = st.text_input("Longitud (-77.04)", placeholder="-77.0428", key="t1_lon_geo", label_visibility="collapsed")
+        st.caption("💡 **Tip para Activistas:** En campo, abre Google Maps o la brújula/GPS de tu celular en el punto exacto, toca la ubicación y pega aquí las coordenadas (Latitud y Longitud) para georreferenciar el levantamiento.")
         st.divider()
     else:
         st.subheader("💡 Conectá la realidad de tu provincia con soluciones reales")
@@ -289,6 +308,10 @@ with tab1:
             "activista_nombre": nombre_activista.strip() if nombre_activista else ("Activista No Especificado" if ("Activista" in modo_portal or "Captura en Campo" in modo_portal) else "N/A - Autorregistro"),
             "activista_region": region_activista if region_activista else (sel_region if ("Activista" in modo_portal or "Captura en Campo" in modo_portal) else "N/A"),
             "activista_contacto": id_activista.strip() if id_activista else "",
+            "georef_lugar": lugar_exacto.strip() if lugar_exacto else ("No Especificado" if ("Activista" in modo_portal or "Captura en Campo" in modo_portal) else "Autorregistro Online"),
+            "georef_tipo_espacio": tipo_punto if tipo_punto else "N/A",
+            "georef_latitud": latitud_gps.strip() if latitud_gps else "",
+            "georef_longitud": longitud_gps.strip() if longitud_gps else "",
             "eje_asignado": eje_code,
             "eje_nombre": eje_name,
             "dama_verified": True,
@@ -310,11 +333,12 @@ with tab2:
     st.subheader("📊 Cerebro Analítico Regional: Problemáticas, Cruces Demográficos y Voz Cívica")
     st.write("Explora el pulso ciudadano a través de nuestras 4 dimensiones analíticas interactivas en tiempo real:")
     
-    sub_t1, sub_t2, sub_t3, sub_t4 = st.tabs([
+    sub_t1, sub_t2, sub_t3, sub_t4, sub_t5 = st.tabs([
         "🇵🇪 Batería de las 3 Preguntas Estratégicas",
         "🔀 Cruces Sociodemográficos Multinivel",
         "🎙️ Nube de Palabras y Transcripciones en Vivo",
-        "🗣️ Muro Testimonial por Ejes Programáticos"
+        "🗣️ Muro Testimonial por Ejes Programáticos",
+        "🗺️ Mapa y Puntos de Levantamiento"
     ])
     
     df_surveys = pd.DataFrame(surveys)
@@ -347,32 +371,34 @@ with tab2:
                 title=f"1️⃣ Mayor Problema de la Región/Ciudad en {reg_filtro}",
                 color="Conteo", color_continuous_scale="Reds"
             )
-            fig_p1.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=10,t=40,b=20))
+            fig_p1.update_layout(height=420, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=20,t=50,b=30))
             st.plotly_chart(fig_p1, use_container_width=True)
             
-            # Gráficas P2 y P3 lado a lado
-            c_p2, c_p3 = st.columns(2)
-            with c_p2:
-                p2_counts = df_p["p2_problema_familiar"].value_counts().reset_index()
-                p2_counts.columns = ["Problema Familiar/Personal", "Conteo"]
-                fig_p2 = px.bar(
-                    p2_counts, x="Conteo", y="Problema Familiar/Personal", orientation='h',
-                    title="2️⃣ Mayor Problema Familiar / Personal",
-                    color="Conteo", color_continuous_scale="Oranges"
-                )
-                fig_p2.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=10,t=40,b=20))
-                st.plotly_chart(fig_p2, use_container_width=True)
-                
-            with c_p3:
-                p3_counts = df_p["p3_prioridad_gobierno"].value_counts().reset_index()
-                p3_counts.columns = ["Prioridad Próximo Gobierno/Congreso", "Conteo"]
-                fig_p3 = px.bar(
-                    p3_counts, x="Conteo", y="Prioridad Próximo Gobierno/Congreso", orientation='h',
-                    title="3️⃣ Prioridad Inmediata Exigida al Gobierno",
-                    color="Conteo", color_continuous_scale="Blues"
-                )
-                fig_p3.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=10,t=40,b=20))
-                st.plotly_chart(fig_p3, use_container_width=True)
+            st.markdown("<br/>", unsafe_allow_html=True)
+            
+            # Gráfica P2 (Problema Familiar / Personal) - Apilado debajo a ancho completo
+            p2_counts = df_p["p2_problema_familiar"].value_counts().reset_index()
+            p2_counts.columns = ["Problema Familiar/Personal", "Conteo"]
+            fig_p2 = px.bar(
+                p2_counts, x="Conteo", y="Problema Familiar/Personal", orientation='h',
+                title="2️⃣ Mayor Problema Familiar / Personal",
+                color="Conteo", color_continuous_scale="Oranges"
+            )
+            fig_p2.update_layout(height=420, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=20,t=50,b=30))
+            st.plotly_chart(fig_p2, use_container_width=True)
+            
+            st.markdown("<br/>", unsafe_allow_html=True)
+            
+            # Gráfica P3 (Prioridad Inmediata Exigida al Gobierno) - Apilado debajo a ancho completo
+            p3_counts = df_p["p3_prioridad_gobierno"].value_counts().reset_index()
+            p3_counts.columns = ["Prioridad Próximo Gobierno/Congreso", "Conteo"]
+            fig_p3 = px.bar(
+                p3_counts, x="Conteo", y="Prioridad Próximo Gobierno/Congreso", orientation='h',
+                title="3️⃣ Prioridad Inmediata Exigida al Gobierno",
+                color="Conteo", color_continuous_scale="Blues"
+            )
+            fig_p3.update_layout(height=420, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=20,t=50,b=30))
+            st.plotly_chart(fig_p3, use_container_width=True)
         else:
             st.warning("⚠️ No hay datos registrados en el padrón para realizar el análisis.")
 
@@ -509,6 +535,42 @@ with tab2:
                     """, unsafe_allow_html=True)
         else:
             st.warning("No hay encuestas en el padrón.")
+
+    # =========================================================
+    # SUB-TAB 5: MAPA TERRITORIAL Y GEOREFERENCIACIÓN DE CAMPO
+    # =========================================================
+    with sub_t5:
+        st.markdown("#### 🗺️ Mapa Territorial y Auditoría de Puntos de Levantamiento en Campo")
+        st.write("Visualización interactiva y georreferenciada de los puntos exactos (plazas, mercados, asambleas y barrios) donde los activistas territoriales recopilan la voz ciudadana.")
+        
+        if not df_surveys.empty:
+            # Filtrar registros que tengan coordenadas GPS válidas
+            df_geo = df_surveys.copy()
+            df_geo["lat_num"] = pd.to_numeric(df_geo.get("georef_latitud", pd.Series(dtype=str)), errors="coerce")
+            df_geo["lon_num"] = pd.to_numeric(df_geo.get("georef_longitud", pd.Series(dtype=str)), errors="coerce")
+            
+            df_con_gps = df_geo.dropna(subset=["lat_num", "lon_num"])
+            
+            if not df_con_gps.empty:
+                st.success(f"📍 Se encontraron **{len(df_con_gps)}** levantamientos con coordenadas GPS exactas verificadas:")
+                fig_map = px.scatter_mapbox(
+                    df_con_gps, lat="lat_num", lon="lon_num",
+                    hover_name="georef_lugar",
+                    hover_data=["region", "activista_nombre", "georef_tipo_espacio", "p1_problema_region"],
+                    color="region", size_max=15, zoom=4.5,
+                    title="📍 Puntos de Levantamiento Georreferenciados en Campo"
+                )
+                fig_map.update_layout(mapbox_style="open-street-map", height=450, margin=dict(l=0, r=0, t=40, b=0))
+                st.plotly_chart(fig_map, use_container_width=True)
+            else:
+                st.info("ℹ️ Aún no se han ingresado coordenadas numéricas exactas (Latitud/Longitud) en los registros recientes, pero a continuación puedes auditar los puntos de levantamiento declarados por los activistas:")
+                
+            st.markdown("##### 📋 Registro Territorial Detallado por Activista y Punto de Captura:")
+            cols_mostrar = ["survey_id", "region", "activista_nombre", "georef_lugar", "georef_tipo_espacio", "georef_latitud", "georef_longitud", "timestamp"]
+            cols_disponibles = [c for c in cols_mostrar if c in df_surveys.columns]
+            st.dataframe(df_surveys[cols_disponibles], use_container_width=True)
+        else:
+            st.warning("No hay encuestas para mostrar.")
 
 # -------------------------------------------------------------
 # TAB 3: AUDITORÍA Y CALIDAD DE DATOS (DAMA-DMBOK)
