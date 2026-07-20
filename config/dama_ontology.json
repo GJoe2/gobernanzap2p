@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ontología Maestra de Datos y Taxonomía Partidaria (DAMA-DMBOK v2)",
+  "description": "Diccionario de datos maestro (MDM) y catálogo semántico para interoperabilidad entre Sovereign, Consul, Polis y Streamlit.",
+  "version": "1.0.0",
+  "master_data_entities": {
+    "Afiliado_Master": {
+      "description": "Golden Record del militante o simpatizante en el sistema de identidad soberana (DID).",
+      "fields": {
+        "did_id": "STRING (PK) - Identificador Descentralizado Criptográfico único.",
+        "alias_civico": "STRING - Nombre o alias público utilizado en debates y grafos de delegación.",
+        "rol_partidario": "ENUM - ['SIMPATIZANTE', 'MILITANTE_VERIFICADO', 'DELEGADO_TEMATICO', 'MIEMBRO_DIRECCION']",
+        "territorio": "STRING - Municipio o región electoral asignada para segmentación y territorialidad.",
+        "balances_tokens": "OBJECT - Balance en tiempo real de tokens de voto temáticos asignados en Sovereign.",
+        "delegaciones_activas": "ARRAY of OBJECTS - Mapeo de a quién delega su voto en cada eje temático.",
+        "sybil_verified": "BOOLEAN - Verificación de humanidad y prueba cívica superada.",
+        "fecha_ingreso": "TIMESTAMP - Registro inmutable de ingreso al partido."
+      }
+    },
+    "Ejes_Ideologicos": [
+      {
+        "code": "ECO-01",
+        "name": "Economía, Trabajo y Desarrollo Productivo",
+        "description": "Políticas fiscales, empleo, innovación industrial y redistribución económica.",
+        "token_namespace": "TOKEN_ECO"
+      },
+      {
+        "code": "EDU-02",
+        "name": "Educación, Ciencia y Tecnología",
+        "description": "Sistema educativo, investigación universitaria, soberanía digital e IA pública.",
+        "token_namespace": "TOKEN_EDU"
+      },
+      {
+        "code": "SAL-03",
+        "name": "Salud Integral y Bienestar Social",
+        "description": "Sistema sanitario, salud mental, cuidados y seguridad social.",
+        "token_namespace": "TOKEN_SAL"
+      },
+      {
+        "code": "REF-04",
+        "name": "Reforma Política, Justicia y Gobernanza P2P",
+        "description": "Transparencia institucional, descentralización del Estado y democracia directa/líquida.",
+        "token_namespace": "TOKEN_REF"
+      },
+      {
+        "code": "AMB-05",
+        "name": "Ambiente, Energía y Transición Ecológica",
+        "description": "Sostenibilidad ambiental, matriz energética limpia y protección de recursos naturales.",
+        "token_namespace": "TOKEN_AMB"
+      }
+    ],
+    "Transaccion_Voto_Sovereign": {
+      "description": "Registro transaccional inmutable en MongoDB de emisión de voto o delegación líquida.",
+      "fields": {
+        "tx_id": "STRING (UUID) - Identificador único de la transacción.",
+        "timestamp": "TIMESTAMP - Momento exacto de ejecución con firma criptográfica.",
+        "sender_did": "STRING - DID del militante o delegado que emite los tokens.",
+        "target_id": "STRING - ID de la Propuesta/Párrafo en Consul o DID del delegado receptor.",
+        "axis_code": "STRING - Código del Eje Ideológico (ej. ECO-01).",
+        "token_amount": "INTEGER - Cantidad de tokens ponderados asignados en esta transacción.",
+        "kind": "ENUM - ['DIRECT_VOTE', 'DELEGATION_ASSIGN', 'DELEGATION_REVOKE']",
+        "lineage_hash": "STRING - Hash criptográfico SHA-256 para auditoría DAMA."
+      }
+    },
+    "Parrafo_Ideario_Consul": {
+      "description": "Entidad de Legislación Colaborativa donde se edita e incisa el programa de gobierno.",
+      "fields": {
+        "parrafo_id": "STRING (PK) - ID único de la línea o inciso del documento.",
+        "seccion_eje": "STRING (FK) - Relación con Ejes_Ideologicos.code.",
+        "version_num": "INTEGER - Número de versión incremental estilo Git.",
+        "contenido_texto": "TEXT - Redacción actual del párrafo.",
+        "autor_did": "STRING - DID del ciudadano que propuso el párrafo inicial en Streamlit/Consul.",
+        "enmiendas": "ARRAY - Enmiendas propuestas con votos a favor/en contra.",
+        "status_consenso": "ENUM - ['BORRADOR_INTAKE', 'EN_DELIBERACION_POLIS', 'VOTACION_LIQUIDA_SOVEREIGN', 'APROBADO_IDEARIO_FINAL']"
+      }
+    }
+  },
+  "dama_quality_kpis": {
+    "kom_dedup_nlp": "Deduplicación semántica mayor o igual al 82% de similitud en embeddings.",
+    "kom_lineage_trace": "100% de los párrafos del Ideario final deben mantener linaje hasta la encuesta de origen.",
+    "kom_token_integrity": "Suma total de balances de tokens emitidos igual a tokens circulantes transaccionados."
+  }
+}

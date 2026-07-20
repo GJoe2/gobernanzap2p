@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # ==========================================
+  # 1. MongoDB (Motor P2P Sovereign & Polis)
+  # ==========================================
+  mongodb:
+    image: mongo:6.0
+    container_name: gobernanza_mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-sovereign_secret}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE:-sovereign_db}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - p2p_governance_net
+
+  # Interfaz Web para Inspecciónr MongoDB (Mongo Express)
+  mongo_express:
+    image: mongo-express:1.0.0
+    container_name: gobernanza_mongo_ui
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME:-admin}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-sovereign_secret}
+      ME_CONFIG_MONGODB_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-admin}:${MONGO_INITDB_ROOT_PASSWORD:-sovereign_secret}@mongodb:27017/
+      ME_CONFIG_BASICAUTH: "false"
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
+    networks:
+      - p2p_governance_net
+
+  # ==========================================
+  # 2. PostgreSQL (Textos Consul & Decidim)
+  # ==========================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: gobernanza_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-consul_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-consul_secret}
+      POSTGRES_DB: ${POSTGRES_DB:-consul_ideario_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - p2p_governance_net
+
+volumes:
+  mongo_data:
+  postgres_data:
+
+networks:
+  p2p_governance_net:
+    driver: bridge

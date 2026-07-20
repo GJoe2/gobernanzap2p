@@ -1,0 +1,24 @@
+# ==============================================================================
+# REGLAS DE GOBERNANZA P2P Y DEMOCRACIA LÍQUIDA (Sovereign + Consul + Polis)
+# ==============================================================================
+
+sovereign_liquid_engine:
+  tokens_per_member_per_axis: 100
+  allow_partial_delegation: true       # Permite delegar por ejes (ej. 100 de Economía al Delegado A)
+  instant_revocation: true             # Si el delegado vota en contra, el militante puede revocar o sobreescribir su voto en tiempo real
+  max_delegation_chain_hops: 4         # Evita bucles infinitos en grafos de delegación (A->B->C->D)
+  quadratic_voting_enabled: false      # Voto lineal por defecto (1 token = 1 peso de voto en el párrafo)
+
+consul_collaborative_legislation:
+  approval_supermajority_threshold: 0.66   # 66% de tokens positivos requeridos para consolidar un párrafo en el Ideario
+  min_quorum_tokens: 500                   # Mínimo de tokens que deben participar en la votación de un artículo
+  amendment_window_days: 7                 # Días hábiles para presentar enmiendas al párrafo en redacción
+
+polis_ai_deliberation:
+  min_cluster_size_percent: 15             # Un grupo de opinión (facción) debe tener al menos 15% de usuarios para formar un clúster PCA
+  consensus_bridge_threshold: 0.70         # Una propuesta es declarada "Puente de Consenso" si es aprobada por al menos el 70% en todos los clústeres opuestos
+
+dama_data_stewardship:
+  auto_steward_assignment: true            # Los 3 delegados con más tokens recibidos en cada eje son declarados automáticamente "Data Stewards Cívicos" de ese eje
+  audit_trail_frequency: "REAL_TIME"
+  sybil_resistance_check: "MANDATORY_FOR_VOTING"
