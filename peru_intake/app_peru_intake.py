@@ -19,15 +19,37 @@ if hasattr(sys.stdout, 'reconfigure'):
 ROOT_DIR = pathlib.Path(__file__).parent.parent
 sys.path.append(str(ROOT_DIR))
 
+import importlib
+
+# Sincronización e importación segura para invalidar caché de sys.modules tras despliegue en Streamlit Cloud
+for mod_name in ["peru_intake.peru_demographics", "peru_intake.nlp_peru_classifier", "peru_intake.speech_transcriber", "peru_intake.wordcloud_generator", "peru_demographics", "nlp_peru_classifier", "speech_transcriber", "wordcloud_generator"]:
+    if mod_name in sys.modules:
+        try:
+            importlib.reload(sys.modules[mod_name])
+        except Exception:
+            pass
+
 from peru_intake.peru_demographics import (
     REGIONES_PERU, AMBITOS_TERRITORIALES, RANGOS_ETARIOS,
     SITUACIONES_LABORALES, NIVELES_EDUCATIVOS, PREGUNTAS_ESTRUCTURADAS, EJES_IDEARIO_PERU
 )
 from peru_intake.nlp_peru_classifier import PeruNLPClassifier
 from peru_intake.speech_transcriber import PeruSpeechTranscriber
-from peru_intake.wordcloud_generator import (
-    render_wordcloud, render_top_keywords_treemap, get_combined_text_from_surveys, render_semantic_map_peru
-)
+try:
+    from peru_intake.wordcloud_generator import (
+        render_wordcloud, render_top_keywords_treemap, get_combined_text_from_surveys, render_semantic_map_peru
+    )
+except ImportError:
+    try:
+        from wordcloud_generator import (
+            render_wordcloud, render_top_keywords_treemap, get_combined_text_from_surveys, render_semantic_map_peru
+        )
+    except ImportError:
+        import peru_intake.wordcloud_generator as wg
+        importlib.reload(wg)
+        from peru_intake.wordcloud_generator import (
+            render_wordcloud, render_top_keywords_treemap, get_combined_text_from_surveys, render_semantic_map_peru
+        )
 
 # Configuración de página Streamlit
 st.set_page_config(
