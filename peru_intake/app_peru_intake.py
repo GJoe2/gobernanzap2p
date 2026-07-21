@@ -410,42 +410,43 @@ with tab2:
         st.write("Descubre las divergencias de opinión entre jóvenes vs. adultos mayores, trabajadores informales vs. formales, y zonas rurales vs. urbanas:")
         
         if not df_surveys.empty:
-            # Cruce 1: Situación Laboral vs. Prioridad del Gobierno (P3)
             df_lab_clean = df_surveys.copy()
             df_lab_clean["Situación Laboral Corta"] = df_lab_clean["situacion_laboral"].apply(lambda x: x.split(" (")[0])
-            df_lab_clean["Prioridad Corta"] = df_lab_clean["p3_prioridad_gobierno"].apply(lambda x: x[:38] + "...")
+            df_lab_clean["Prioridad al Gobierno"] = df_lab_clean["p3_prioridad_gobierno"]
+            df_lab_clean["Problema Familiar"] = df_lab_clean["p2_problema_familiar"]
+            df_lab_clean["Problema Regional"] = df_lab_clean["p1_problema_region"]
+            df_lab_clean["Ámbito Territorial"] = df_lab_clean["ambito_territorial"].apply(lambda x: x.split(" (")[0])
             
+            # Cruce 1: Situación Laboral vs. Prioridad del Gobierno (Ancho completo, horizontal y sin cortes)
             fig_c1 = px.bar(
-                df_lab_clean, x="Situación Laboral Corta", color="Prioridad Corta",
-                title="¿Qué Prioridad de Gobierno exigen los Trabajadores Informales (MYPE) vs. Formales vs. Agricultores?",
-                barmode="stack", color_discrete_sequence=px.colors.qualitative.Bold
+                df_lab_clean, y="Situación Laboral Corta", color="Prioridad al Gobierno",
+                title="1️⃣ ¿Qué Prioridad de Gobierno exigen los Trabajadores Informales (MYPE) vs. Formales vs. Agricultores?",
+                orientation="h", barmode="stack", color_discrete_sequence=px.colors.qualitative.Bold
             )
-            fig_c1.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=10,t=50,b=20))
+            fig_c1.update_layout(height=480, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=20,t=60,b=60), legend=dict(orientation="h", yanchor="top", y=-0.25, xanchor="center", x=0.5))
             st.plotly_chart(fig_c1, use_container_width=True)
             
-            c_c2, c_c3 = st.columns(2)
-            with c_c2:
-                # Cruce 2: Rango Etario vs. Problema Familiar (P2)
-                df_lab_clean["Problema Familiar Corto"] = df_lab_clean["p2_problema_familiar"].apply(lambda x: x[:35] + "...")
-                fig_c2 = px.bar(
-                    df_lab_clean, y="rango_edad", color="Problema Familiar Corto",
-                    title="Problema Familiar por Rango Etario (Jóvenes vs. Adultos Mayores)",
-                    orientation='h', barmode="stack", color_discrete_sequence=px.colors.qualitative.Vivid
-                )
-                fig_c2.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=10,t=50,b=20))
-                st.plotly_chart(fig_c2, use_container_width=True)
-                
-            with c_c3:
-                # Cruce 3: Ámbito Territorial vs. Problema Regional (P1)
-                df_lab_clean["Ámbito Corto"] = df_lab_clean["ambito_territorial"].apply(lambda x: x.split(" (")[0])
-                df_lab_clean["Problema Regional Corto"] = df_lab_clean["p1_problema_region"].apply(lambda x: x[:32] + "...")
-                fig_c3 = px.bar(
-                    df_lab_clean, x="Ámbito Corto", color="Problema Regional Corto",
-                    title="Demandas por Ámbito (Urbano vs. Urbano-Marginal vs. Rural)",
-                    barmode="group", color_discrete_sequence=px.colors.qualitative.Safe
-                )
-                fig_c3.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=10,t=50,b=20))
-                st.plotly_chart(fig_c3, use_container_width=True)
+            st.markdown("<br/>", unsafe_allow_html=True)
+            
+            # Cruce 2: Rango Etario vs. Problema Familiar (Apilado debajo, ancho completo y sin cortes)
+            fig_c2 = px.bar(
+                df_lab_clean, y="rango_edad", color="Problema Familiar",
+                title="2️⃣ Problema Familiar por Rango Etario (Jóvenes vs. Adultos Mayores)",
+                orientation='h', barmode="stack", color_discrete_sequence=px.colors.qualitative.Vivid
+            )
+            fig_c2.update_layout(height=480, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=20,t=60,b=60), legend=dict(orientation="h", yanchor="top", y=-0.25, xanchor="center", x=0.5))
+            st.plotly_chart(fig_c2, use_container_width=True)
+            
+            st.markdown("<br/>", unsafe_allow_html=True)
+            
+            # Cruce 3: Ámbito Territorial vs. Problema Regional (Apilado debajo, ancho completo y sin cortes)
+            fig_c3 = px.bar(
+                df_lab_clean, y="Ámbito Territorial", color="Problema Regional",
+                title="3️⃣ Demandas por Ámbito (Urbano vs. Urbano-Marginal vs. Rural)",
+                orientation='h', barmode="group", color_discrete_sequence=px.colors.qualitative.Safe
+            )
+            fig_c3.update_layout(height=500, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=20,t=60,b=60), legend=dict(orientation="h", yanchor="top", y=-0.25, xanchor="center", x=0.5))
+            st.plotly_chart(fig_c3, use_container_width=True)
         else:
             st.warning("⚠️ No hay suficientes datos para generar los cruces sociodemográficos.")
 
@@ -475,18 +476,20 @@ with tab2:
         if not df_wc.empty:
             texto_procesado = get_combined_text_from_surveys(df_wc.to_dict('records'))
             
-            c_wc_a, c_wc_b = st.columns([1.2, 1])
-            with c_wc_a:
-                render_wordcloud(
-                    texto_procesado,
-                    title=f"Palabras Más Repetidas: {nombre_vista}",
-                    colormap="Spectral" if "Todo el Perú" in reg_wc_filtro else "cool"
-                )
-            with c_wc_b:
-                render_top_keywords_treemap(
-                    texto_procesado,
-                    title=f"Frecuencia de Conceptos: {nombre_vista}"
-                )
+            # Desplegar Nube de Palabras a ancho completo para evitar compresión
+            render_wordcloud(
+                texto_procesado,
+                title=f"Palabras Más Repetidas: {nombre_vista}",
+                colormap="Spectral" if "Todo el Perú" in reg_wc_filtro else "cool"
+            )
+            
+            st.markdown("<br/>", unsafe_allow_html=True)
+            
+            # Desplegar Treemap de Palabras debajo a ancho completo
+            render_top_keywords_treemap(
+                texto_procesado,
+                title=f"Frecuencia de Conceptos: {nombre_vista}"
+            )
                 
             st.markdown("<br/>", unsafe_allow_html=True)
             st.markdown(f"#### 🎙️ Transcripciones y Testimonios Literales: **{nombre_vista}** (`{len(df_wc)} registros transcritos`)")
