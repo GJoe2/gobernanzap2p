@@ -139,7 +139,13 @@ def load_peru_data():
     if not PERU_DB.exists():
         return []
     with open(PERU_DB, "r", encoding="utf-8") as f:
-        return json.load(f)
+        data = json.load(f)
+        for s in data:
+            if "ambito_territorial" in s and s["ambito_territorial"]:
+                s["ambito_territorial"] = "Rural" if "Rural" in str(s["ambito_territorial"]) else "Urbano"
+            if "genero" in s and s["genero"]:
+                s["genero"] = "Femenino" if "Femenino" in str(s["genero"]) else "Masculino"
+        return data
 
 def save_peru_data(surveys_data):
     with open(PERU_DB, "w", encoding="utf-8") as f:
@@ -317,7 +323,7 @@ with tab1:
             sel_ambito = st.selectbox("Ámbito Territorial de Residencia", AMBITOS_TERRITORIALES, key="t1_ambito")
         with c_r2:
             sel_edad = st.selectbox("Rango Etario", RANGOS_ETARIOS, key="t1_edad")
-            sel_genero = st.selectbox("Género / Identidad", ["Femenino", "Masculino", "Prefiero no decir"], key="t1_genero")
+            sel_genero = st.selectbox("Sexo", ["Masculino", "Femenino"], key="t1_genero")
             
         st.divider()
         st.markdown("### 2️⃣ Demandas Estructurales y Prioridades para el País")
@@ -498,12 +504,12 @@ with tab2:
             df_demo_clean["Problema Familiar"] = df_demo_clean["p2_problema_familiar"]
             df_demo_clean["Problema Regional"] = df_demo_clean["p1_problema_region"]
             df_demo_clean["Ámbito Territorial"] = df_demo_clean["ambito_territorial"].apply(lambda x: x.split(" (")[0])
-            df_demo_clean["Género"] = df_demo_clean["genero"]
+            df_demo_clean["Sexo"] = df_demo_clean["genero"]
             
-            # Cruce 1: Género vs. Prioridad del Gobierno (Ancho completo, horizontal y sin cortes)
+            # Cruce 1: Sexo vs. Prioridad del Gobierno (Ancho completo, horizontal y sin cortes)
             fig_c1 = px.bar(
-                df_demo_clean, y="Género", color="Prioridad al Gobierno",
-                title="1️⃣ ¿Qué Prioridad de Gobierno exigen los Ciudadanos según su Género / Identidad?",
+                df_demo_clean, y="Sexo", color="Prioridad al Gobierno",
+                title="1️⃣ ¿Qué Prioridad de Gobierno exigen los Ciudadanos según su Sexo?",
                 orientation="h", barmode="stack", color_discrete_sequence=px.colors.qualitative.Bold
             )
             fig_c1.update_layout(height=450, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=20,t=60,b=60), legend=dict(orientation="h", yanchor="top", y=-0.25, xanchor="center", x=0.5))
@@ -525,7 +531,7 @@ with tab2:
             # Cruce 3: Ámbito Territorial vs. Problema Regional (Apilado debajo, ancho completo y sin cortes)
             fig_c3 = px.bar(
                 df_demo_clean, y="Ámbito Territorial", color="Problema Regional",
-                title="3️⃣ Demandas por Ámbito (Urbano vs. Urbano-Marginal vs. Rural)",
+                title="3️⃣ Demandas por Ámbito (Urbano vs. Rural)",
                 orientation='h', barmode="group", color_discrete_sequence=px.colors.qualitative.Safe
             )
             fig_c3.update_layout(height=500, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=20,t=60,b=60), legend=dict(orientation="h", yanchor="top", y=-0.25, xanchor="center", x=0.5))

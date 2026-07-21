@@ -11,9 +11,8 @@ REGIONES_PERU = [
 ]
 
 AMBITOS_TERRITORIALES = [
-    "Urbano (Capital de Provincia / Distrito Urbano)",
-    "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
-    "Rural (Comunidad Campesina / Nativa / Centro Poblado)"
+    "Urbano",
+    "Rural"
 ]
 
 RANGOS_ETARIOS = [

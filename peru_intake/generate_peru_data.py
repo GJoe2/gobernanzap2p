@@ -63,16 +63,16 @@ def generate_mock_peru_surveys(num_surveys=160):
     for i in range(num_surveys):
         region = REGIONES_PERU[i % len(REGIONES_PERU)]
         
-        # Ponderación natural de ámbito según región (en Lima más urbano, en sierra/selva más rural/urbano-marginal)
+        # Ponderación natural de ámbito según región (en Lima más urbano, en sierra/selva más rural)
         if "Lima" in region or "Callao" in region:
-            ambito = random.choices(AMBITOS_TERRITORIALES, weights=[0.60, 0.35, 0.05])[0]
+            ambito = random.choices(AMBITOS_TERRITORIALES, weights=[0.88, 0.12])[0]
         elif region in ["Cusco", "Puno", "Ayacucho", "Cajamarca", "Apurímac", "Huancavelica", "Amazonas"]:
-            ambito = random.choices(AMBITOS_TERRITORIALES, weights=[0.30, 0.30, 0.40])[0]
+            ambito = random.choices(AMBITOS_TERRITORIALES, weights=[0.45, 0.55])[0]
         else:
-            ambito = random.choices(AMBITOS_TERRITORIALES, weights=[0.45, 0.35, 0.20])[0]
+            ambito = random.choices(AMBITOS_TERRITORIALES, weights=[0.65, 0.35])[0]
 
         rango_edad = random.choice(RANGOS_ETARIOS)
-        genero = random.choices(["Femenino", "Masculino", "Prefiero no decir"], weights=[0.49, 0.49, 0.02])[0]
+        genero = random.choices(["Masculino", "Femenino"], weights=[0.50, 0.50])[0]
         educacion = random.choice(NIVELES_EDUCATIVOS)
         
         # Situación laboral pesando informalidad

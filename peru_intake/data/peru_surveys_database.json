@@ -2,7 +2,7 @@
   {
     "survey_id": "PERU-DD7D309B",
     "region": "Amazonas",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -21,7 +21,7 @@
   {
     "survey_id": "PERU-77F91109",
     "region": "Áncash",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -40,7 +40,7 @@
   {
     "survey_id": "PERU-2CA0FC99",
     "region": "Apurímac",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -59,7 +59,7 @@
   {
     "survey_id": "PERU-48910AC7",
     "region": "Arequipa",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -78,7 +78,7 @@
   {
     "survey_id": "PERU-AF296A29",
     "region": "Ayacucho",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -97,7 +97,7 @@
   {
     "survey_id": "PERU-73D07E17",
     "region": "Cajamarca",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -116,7 +116,7 @@
   {
     "survey_id": "PERU-95A66AE7",
     "region": "Callao (Provincia Constitucional)",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -135,7 +135,7 @@
   {
     "survey_id": "PERU-C2630E98",
     "region": "Cusco",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -154,7 +154,7 @@
   {
     "survey_id": "PERU-CD1D078B",
     "region": "Huancavelica",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -173,7 +173,7 @@
   {
     "survey_id": "PERU-7BD4049B",
     "region": "Huánuco",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -192,7 +192,7 @@
   {
     "survey_id": "PERU-DC3D37EC",
     "region": "Ica",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -211,7 +211,7 @@
   {
     "survey_id": "PERU-26AB1CC4",
     "region": "Junín",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -230,7 +230,7 @@
   {
     "survey_id": "PERU-F4EC222A",
     "region": "La Libertad",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -249,7 +249,7 @@
   {
     "survey_id": "PERU-F96A1C2D",
     "region": "Lambayeque",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -268,7 +268,7 @@
   {
     "survey_id": "PERU-690A70FA",
     "region": "Lima Metropolitana",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -287,7 +287,7 @@
   {
     "survey_id": "PERU-608109B6",
     "region": "Lima Provincias",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -306,7 +306,7 @@
   {
     "survey_id": "PERU-BD516449",
     "region": "Loreto",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Técnico Superior",
@@ -325,7 +325,7 @@
   {
     "survey_id": "PERU-AEF6C7AF",
     "region": "Madre de Dios",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -344,7 +344,7 @@
   {
     "survey_id": "PERU-30B6F67E",
     "region": "Moquegua",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -363,7 +363,7 @@
   {
     "survey_id": "PERU-870A8CCD",
     "region": "Pasco",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -382,7 +382,7 @@
   {
     "survey_id": "PERU-9E07AB3F",
     "region": "Piura",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -401,7 +401,7 @@
   {
     "survey_id": "PERU-68916AE7",
     "region": "Puno",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -420,7 +420,7 @@
   {
     "survey_id": "PERU-0918F963",
     "region": "San Martín",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -439,7 +439,7 @@
   {
     "survey_id": "PERU-A2CB8205",
     "region": "Tacna",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -458,7 +458,7 @@
   {
     "survey_id": "PERU-09450717",
     "region": "Tumbes",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -477,7 +477,7 @@
   {
     "survey_id": "PERU-BD8E162D",
     "region": "Ucayali",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Técnico Superior",
@@ -496,7 +496,7 @@
   {
     "survey_id": "PERU-8229E782",
     "region": "Diáspora (Peruanos en el Exterior)",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -515,7 +515,7 @@
   {
     "survey_id": "PERU-29A3FD74",
     "region": "Amazonas",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -534,7 +534,7 @@
   {
     "survey_id": "PERU-D3AA33CE",
     "region": "Áncash",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -553,7 +553,7 @@
   {
     "survey_id": "PERU-1E2F9D68",
     "region": "Apurímac",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -572,7 +572,7 @@
   {
     "survey_id": "PERU-023019CD",
     "region": "Arequipa",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -591,7 +591,7 @@
   {
     "survey_id": "PERU-217B0D7C",
     "region": "Ayacucho",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -610,7 +610,7 @@
   {
     "survey_id": "PERU-7D56D6D1",
     "region": "Cajamarca",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -629,7 +629,7 @@
   {
     "survey_id": "PERU-F751D5A6",
     "region": "Callao (Provincia Constitucional)",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -648,7 +648,7 @@
   {
     "survey_id": "PERU-13F5C77F",
     "region": "Cusco",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Técnico Superior",
@@ -667,7 +667,7 @@
   {
     "survey_id": "PERU-B291890B",
     "region": "Huancavelica",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Técnico Superior",
@@ -686,7 +686,7 @@
   {
     "survey_id": "PERU-6E041768",
     "region": "Huánuco",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -705,7 +705,7 @@
   {
     "survey_id": "PERU-919760AF",
     "region": "Ica",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -724,7 +724,7 @@
   {
     "survey_id": "PERU-897E69A7",
     "region": "Junín",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Técnico Superior",
@@ -743,7 +743,7 @@
   {
     "survey_id": "PERU-24CE1625",
     "region": "La Libertad",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -762,7 +762,7 @@
   {
     "survey_id": "PERU-5A5A0C8A",
     "region": "Lambayeque",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -781,7 +781,7 @@
   {
     "survey_id": "PERU-2D386A6B",
     "region": "Lima Metropolitana",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -800,7 +800,7 @@
   {
     "survey_id": "PERU-BA3326A7",
     "region": "Lima Provincias",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -819,7 +819,7 @@
   {
     "survey_id": "PERU-9962A19A",
     "region": "Loreto",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -838,7 +838,7 @@
   {
     "survey_id": "PERU-5818C4A7",
     "region": "Madre de Dios",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -857,7 +857,7 @@
   {
     "survey_id": "PERU-064BB36A",
     "region": "Moquegua",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -876,7 +876,7 @@
   {
     "survey_id": "PERU-2B94E1D0",
     "region": "Pasco",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Técnico Superior",
@@ -895,7 +895,7 @@
   {
     "survey_id": "PERU-A5F9CBF7",
     "region": "Piura",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -914,7 +914,7 @@
   {
     "survey_id": "PERU-63C7F01A",
     "region": "Puno",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -933,7 +933,7 @@
   {
     "survey_id": "PERU-E4516EEA",
     "region": "San Martín",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -952,7 +952,7 @@
   {
     "survey_id": "PERU-A129B50A",
     "region": "Tacna",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -971,7 +971,7 @@
   {
     "survey_id": "PERU-8B40CE50",
     "region": "Tumbes",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -990,7 +990,7 @@
   {
     "survey_id": "PERU-82EF4760",
     "region": "Ucayali",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -1009,7 +1009,7 @@
   {
     "survey_id": "PERU-19DA797C",
     "region": "Diáspora (Peruanos en el Exterior)",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -1028,7 +1028,7 @@
   {
     "survey_id": "PERU-D26A65F3",
     "region": "Amazonas",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -1047,7 +1047,7 @@
   {
     "survey_id": "PERU-235E77A2",
     "region": "Áncash",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -1066,7 +1066,7 @@
   {
     "survey_id": "PERU-E425291F",
     "region": "Apurímac",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -1085,7 +1085,7 @@
   {
     "survey_id": "PERU-1CE9F6C9",
     "region": "Arequipa",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -1104,7 +1104,7 @@
   {
     "survey_id": "PERU-C0D25A54",
     "region": "Ayacucho",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -1123,7 +1123,7 @@
   {
     "survey_id": "PERU-49953D96",
     "region": "Cajamarca",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -1142,7 +1142,7 @@
   {
     "survey_id": "PERU-43E08FC8",
     "region": "Callao (Provincia Constitucional)",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -1161,7 +1161,7 @@
   {
     "survey_id": "PERU-0F981816",
     "region": "Cusco",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -1180,7 +1180,7 @@
   {
     "survey_id": "PERU-22DB3D57",
     "region": "Huancavelica",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -1199,7 +1199,7 @@
   {
     "survey_id": "PERU-59B73316",
     "region": "Huánuco",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -1218,7 +1218,7 @@
   {
     "survey_id": "PERU-41E5F888",
     "region": "Ica",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -1237,7 +1237,7 @@
   {
     "survey_id": "PERU-C1AFE6F0",
     "region": "Junín",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -1256,7 +1256,7 @@
   {
     "survey_id": "PERU-0F20AE54",
     "region": "La Libertad",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -1275,7 +1275,7 @@
   {
     "survey_id": "PERU-13F92FBF",
     "region": "Lambayeque",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -1294,7 +1294,7 @@
   {
     "survey_id": "PERU-01315BED",
     "region": "Lima Metropolitana",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -1313,7 +1313,7 @@
   {
     "survey_id": "PERU-34428C3F",
     "region": "Lima Provincias",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -1332,7 +1332,7 @@
   {
     "survey_id": "PERU-BCD7D5AF",
     "region": "Loreto",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -1351,7 +1351,7 @@
   {
     "survey_id": "PERU-A3655939",
     "region": "Madre de Dios",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -1370,7 +1370,7 @@
   {
     "survey_id": "PERU-01A97D61",
     "region": "Moquegua",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -1389,7 +1389,7 @@
   {
     "survey_id": "PERU-5B8F868F",
     "region": "Pasco",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Técnico Superior",
@@ -1408,7 +1408,7 @@
   {
     "survey_id": "PERU-6887152F",
     "region": "Piura",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -1427,7 +1427,7 @@
   {
     "survey_id": "PERU-5347EC13",
     "region": "Puno",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -1446,7 +1446,7 @@
   {
     "survey_id": "PERU-C9198B36",
     "region": "San Martín",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Técnico Superior",
@@ -1465,7 +1465,7 @@
   {
     "survey_id": "PERU-1FB47D93",
     "region": "Tacna",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -1484,7 +1484,7 @@
   {
     "survey_id": "PERU-90FF0513",
     "region": "Tumbes",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -1503,7 +1503,7 @@
   {
     "survey_id": "PERU-E6F7CB21",
     "region": "Ucayali",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Técnico Superior",
@@ -1522,7 +1522,7 @@
   {
     "survey_id": "PERU-756B9B2D",
     "region": "Diáspora (Peruanos en el Exterior)",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -1541,7 +1541,7 @@
   {
     "survey_id": "PERU-9F0EA08F",
     "region": "Amazonas",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -1560,7 +1560,7 @@
   {
     "survey_id": "PERU-E35FB4CF",
     "region": "Áncash",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -1579,7 +1579,7 @@
   {
     "survey_id": "PERU-85DA7E92",
     "region": "Apurímac",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -1598,7 +1598,7 @@
   {
     "survey_id": "PERU-6243E187",
     "region": "Arequipa",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -1617,9 +1617,9 @@
   {
     "survey_id": "PERU-9047931E",
     "region": "Ayacucho",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
-    "genero": "Prefiero no decir",
+    "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
     "situacion_laboral": "Trabajador Independiente / Comerciante / Emprendedor (MYPE / Sector Informal)",
     "p1_problema_region": "Colegios públicos deteriorados y bajo nivel en la educación escolar",
@@ -1636,7 +1636,7 @@
   {
     "survey_id": "PERU-28E339A3",
     "region": "Cajamarca",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -1655,7 +1655,7 @@
   {
     "survey_id": "PERU-B8B9A646",
     "region": "Callao (Provincia Constitucional)",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -1674,7 +1674,7 @@
   {
     "survey_id": "PERU-5B09990C",
     "region": "Cusco",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -1693,7 +1693,7 @@
   {
     "survey_id": "PERU-5F12A531",
     "region": "Huancavelica",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -1712,7 +1712,7 @@
   {
     "survey_id": "PERU-872CE9E4",
     "region": "Huánuco",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -1731,7 +1731,7 @@
   {
     "survey_id": "PERU-9623AE81",
     "region": "Ica",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -1750,7 +1750,7 @@
   {
     "survey_id": "PERU-8DC37788",
     "region": "Junín",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -1769,7 +1769,7 @@
   {
     "survey_id": "PERU-57A8FA1F",
     "region": "La Libertad",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -1788,7 +1788,7 @@
   {
     "survey_id": "PERU-C971B9E2",
     "region": "Lambayeque",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -1807,7 +1807,7 @@
   {
     "survey_id": "PERU-1B6EA21E",
     "region": "Lima Metropolitana",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -1826,7 +1826,7 @@
   {
     "survey_id": "PERU-F9E60A5E",
     "region": "Lima Provincias",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -1845,7 +1845,7 @@
   {
     "survey_id": "PERU-C1B8044E",
     "region": "Loreto",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -1864,7 +1864,7 @@
   {
     "survey_id": "PERU-48D44275",
     "region": "Madre de Dios",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -1883,7 +1883,7 @@
   {
     "survey_id": "PERU-A9EE17C9",
     "region": "Moquegua",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -1902,7 +1902,7 @@
   {
     "survey_id": "PERU-75BC6CEF",
     "region": "Pasco",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -1921,7 +1921,7 @@
   {
     "survey_id": "PERU-C389FB97",
     "region": "Piura",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -1940,7 +1940,7 @@
   {
     "survey_id": "PERU-056535D9",
     "region": "Puno",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -1959,7 +1959,7 @@
   {
     "survey_id": "PERU-2C566C13",
     "region": "San Martín",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -1978,7 +1978,7 @@
   {
     "survey_id": "PERU-28F3686F",
     "region": "Tacna",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Técnico Superior",
@@ -1997,7 +1997,7 @@
   {
     "survey_id": "PERU-C38693C8",
     "region": "Tumbes",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -2016,7 +2016,7 @@
   {
     "survey_id": "PERU-A635F1D8",
     "region": "Ucayali",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -2035,7 +2035,7 @@
   {
     "survey_id": "PERU-CC918B45",
     "region": "Diáspora (Peruanos en el Exterior)",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2054,7 +2054,7 @@
   {
     "survey_id": "PERU-B2607F25",
     "region": "Amazonas",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -2073,7 +2073,7 @@
   {
     "survey_id": "PERU-CE183CEB",
     "region": "Áncash",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -2092,7 +2092,7 @@
   {
     "survey_id": "PERU-80F5BBB3",
     "region": "Apurímac",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2111,7 +2111,7 @@
   {
     "survey_id": "PERU-4A2F95F4",
     "region": "Arequipa",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2130,7 +2130,7 @@
   {
     "survey_id": "PERU-0C47E23B",
     "region": "Ayacucho",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -2149,7 +2149,7 @@
   {
     "survey_id": "PERU-0F651CEF",
     "region": "Cajamarca",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -2168,7 +2168,7 @@
   {
     "survey_id": "PERU-0537EFF9",
     "region": "Callao (Provincia Constitucional)",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -2187,7 +2187,7 @@
   {
     "survey_id": "PERU-AD05A050",
     "region": "Cusco",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2206,7 +2206,7 @@
   {
     "survey_id": "PERU-EAB30BD9",
     "region": "Huancavelica",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2225,7 +2225,7 @@
   {
     "survey_id": "PERU-253F1E09",
     "region": "Huánuco",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -2244,7 +2244,7 @@
   {
     "survey_id": "PERU-CBD68C79",
     "region": "Ica",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -2263,7 +2263,7 @@
   {
     "survey_id": "PERU-D119B312",
     "region": "Junín",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2282,7 +2282,7 @@
   {
     "survey_id": "PERU-35FCBE09",
     "region": "La Libertad",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2301,7 +2301,7 @@
   {
     "survey_id": "PERU-3521EDA1",
     "region": "Lambayeque",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -2320,7 +2320,7 @@
   {
     "survey_id": "PERU-7DA9FED4",
     "region": "Lima Metropolitana",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2339,7 +2339,7 @@
   {
     "survey_id": "PERU-A5A3032B",
     "region": "Lima Provincias",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -2358,7 +2358,7 @@
   {
     "survey_id": "PERU-CBA4B088",
     "region": "Loreto",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2377,7 +2377,7 @@
   {
     "survey_id": "PERU-6DBA2D36",
     "region": "Madre de Dios",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2396,7 +2396,7 @@
   {
     "survey_id": "PERU-259954E1",
     "region": "Moquegua",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2415,7 +2415,7 @@
   {
     "survey_id": "PERU-0FD81D36",
     "region": "Pasco",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2434,7 +2434,7 @@
   {
     "survey_id": "PERU-BA8C791F",
     "region": "Piura",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2453,7 +2453,7 @@
   {
     "survey_id": "PERU-58BF30B7",
     "region": "Puno",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2472,7 +2472,7 @@
   {
     "survey_id": "PERU-34D60825",
     "region": "San Martín",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2491,7 +2491,7 @@
   {
     "survey_id": "PERU-68F21BFD",
     "region": "Tacna",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2510,7 +2510,7 @@
   {
     "survey_id": "PERU-29736159",
     "region": "Tumbes",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2529,7 +2529,7 @@
   {
     "survey_id": "PERU-3DC92C52",
     "region": "Ucayali",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2548,7 +2548,7 @@
   {
     "survey_id": "PERU-91E2C4AB",
     "region": "Diáspora (Peruanos en el Exterior)",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -2567,7 +2567,7 @@
   {
     "survey_id": "PERU-EB43DE6E",
     "region": "Amazonas",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -2586,9 +2586,9 @@
   {
     "survey_id": "PERU-E6BDC943",
     "region": "Áncash",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "51-65 años",
-    "genero": "Prefiero no decir",
+    "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
     "situacion_laboral": "Trabajador Independiente / Comerciante / Emprendedor (MYPE / Sector Informal)",
     "p1_problema_region": "Colegios públicos deteriorados y bajo nivel en la educación escolar",
@@ -2605,7 +2605,7 @@
   {
     "survey_id": "PERU-E35D6C46",
     "region": "Apurímac",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2624,7 +2624,7 @@
   {
     "survey_id": "PERU-FA4FE7B6",
     "region": "Arequipa",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -2643,7 +2643,7 @@
   {
     "survey_id": "PERU-C3608F8C",
     "region": "Ayacucho",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Secundaria",
@@ -2662,7 +2662,7 @@
   {
     "survey_id": "PERU-57EDB30D",
     "region": "Cajamarca",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -2681,7 +2681,7 @@
   {
     "survey_id": "PERU-101E17D6",
     "region": "Callao (Provincia Constitucional)",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2700,7 +2700,7 @@
   {
     "survey_id": "PERU-B0EA94ED",
     "region": "Cusco",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -2719,7 +2719,7 @@
   {
     "survey_id": "PERU-C2556DBF",
     "region": "Huancavelica",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -2738,7 +2738,7 @@
   {
     "survey_id": "PERU-4F77A397",
     "region": "Huánuco",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2757,7 +2757,7 @@
   {
     "survey_id": "PERU-C26ABCD8",
     "region": "Ica",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2776,7 +2776,7 @@
   {
     "survey_id": "PERU-368EC592",
     "region": "Junín",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -2795,7 +2795,7 @@
   {
     "survey_id": "PERU-551D2BE1",
     "region": "La Libertad",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2814,7 +2814,7 @@
   {
     "survey_id": "PERU-1C35E548",
     "region": "Lambayeque",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Universitario incompleto / completo",
@@ -2833,7 +2833,7 @@
   {
     "survey_id": "PERU-537C1F8F",
     "region": "Lima Metropolitana",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Técnico Superior",
@@ -2852,7 +2852,7 @@
   {
     "survey_id": "PERU-77628B1F",
     "region": "Lima Provincias",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2871,7 +2871,7 @@
   {
     "survey_id": "PERU-268DBA7F",
     "region": "Loreto",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -2890,7 +2890,7 @@
   {
     "survey_id": "PERU-033FE244",
     "region": "Madre de Dios",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -2909,7 +2909,7 @@
   {
     "survey_id": "PERU-D350CF03",
     "region": "Moquegua",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Masculino",
     "nivel_educativo": "Primaria",
@@ -2928,7 +2928,7 @@
   {
     "survey_id": "PERU-27F2C5D1",
     "region": "Pasco",
-    "ambito_territorial": "Rural (Comunidad Campesina / Nativa / Centro Poblado)",
+    "ambito_territorial": "Rural",
     "rango_edad": "26-35 años",
     "genero": "Masculino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -2947,7 +2947,7 @@
   {
     "survey_id": "PERU-44693959",
     "region": "Piura",
-    "ambito_territorial": "Urbano-Marginal (Conos / Asentamientos Humanos / Periferia)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "65+ años (Adulto Mayor)",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -2966,7 +2966,7 @@
   {
     "survey_id": "PERU-84B25783",
     "region": "Puno",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Secundaria",
@@ -2985,7 +2985,7 @@
   {
     "survey_id": "PERU-7F69A0B5",
     "region": "San Martín",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "51-65 años",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -3004,7 +3004,7 @@
   {
     "survey_id": "PERU-1C6D6F31",
     "region": "Tacna",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "26-35 años",
     "genero": "Femenino",
     "nivel_educativo": "Postgrado (Maestría / Doctorado)",
@@ -3023,7 +3023,7 @@
   {
     "survey_id": "PERU-A5732BCE",
     "region": "Tumbes",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "36-50 años",
     "genero": "Masculino",
     "nivel_educativo": "Técnico Superior",
@@ -3042,7 +3042,7 @@
   {
     "survey_id": "PERU-E169448B",
     "region": "Amazonas",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
@@ -3061,7 +3061,7 @@
   {
     "survey_id": "PERU-B610A46A",
     "region": "Amazonas",
-    "ambito_territorial": "Urbano (Capital de Provincia / Distrito Urbano)",
+    "ambito_territorial": "Urbano",
     "rango_edad": "18-25 años (Juventud / Primer Empleo)",
     "genero": "Femenino",
     "nivel_educativo": "Primaria",
