@@ -151,10 +151,9 @@ st.sidebar.divider()
 st.sidebar.markdown("### 📊 Pulso y Calidad de Datos")
 if surveys:
     df_s = pd.DataFrame(surveys)
-    informales_cnt = df_s[df_s["situacion_laboral"].str.contains("Independiente|Informal|Comerciante", na=False)].shape[0]
-    informal_pct = round((informales_cnt / len(df_s)) * 100, 1) if len(df_s) > 0 else 0
+    ambitos_cnt = df_s['ambito_territorial'].nunique() if 'ambito_territorial' in df_s.columns else 0
     
-    st.sidebar.info(f"**Total Voces Registradas:** {len(surveys)}\n\n**Regiones Activas:** {df_s['region'].nunique()}/25\n\n**Sector Informal / MYPE:** {informal_pct}%\n\n**Estándar de Calidad:** 100% Verificado")
+    st.sidebar.info(f"**Total Voces Registradas:** {len(surveys)}\n\n**Regiones Activas:** {df_s['region'].nunique()}/25\n\n**Ámbitos Territoriales:** {ambitos_cnt}\n\n**Estándar de Calidad:** 100% Verificado")
 
 # Header principal
 st.markdown("""
@@ -206,7 +205,7 @@ with tab1:
         with g_c1:
             st.info("""
 **👤 Para Ciudadanos (Autorregistro Libre):**
-1. **Datos Demográficos:** Selecciona tu Región, Ámbito territorial (Urbano, Rural, etc.), Rango Etario y Situación Laboral.
+1. **Datos Demográficos:** Selecciona tu Región, Ámbito territorial (Urbano, Rural, etc.), Rango Etario y Género.
 2. **Las 3 Preguntas Estratégicas:** Escoge en las listas desplegables el problema principal de tu región, tu mayor preocupación familiar y tu prioridad inmediata para el Gobierno.
 3. **Tu Voz o Propuesta Libre:** Puedes **grabar un audio por micrófono** (nuestra IA transcribirá tus palabras) o escribir en texto tu solución.
 4. **Registrar:** Haz clic en el botón inferior para sumar tu voz inmutable al padrón analítico del país.
@@ -290,16 +289,13 @@ with tab1:
             st.subheader("💡 Conectá la realidad de tu provincia con soluciones reales")
             
         st.markdown("### 1️⃣ Variables Sociodemográficas de tu Región")
-        c_r1, c_r2, c_r3 = st.columns(3)
+        c_r1, c_r2 = st.columns(2)
         with c_r1:
             sel_region = st.selectbox("Región / Departamento", REGIONES_PERU, key="t1_region")
             sel_ambito = st.selectbox("Ámbito Territorial de Residencia", AMBITOS_TERRITORIALES, key="t1_ambito")
         with c_r2:
             sel_edad = st.selectbox("Rango Etario", RANGOS_ETARIOS, key="t1_edad")
             sel_genero = st.selectbox("Género / Identidad", ["Femenino", "Masculino", "Prefiero no decir"], key="t1_genero")
-        with c_r3:
-            sel_educacion = st.selectbox("Nivel Educativo alcanzado", NIVELES_EDUCATIVOS, key="t1_educacion")
-            sel_laboral = st.selectbox("Situación Laboral / Actividad Económica", SITUACIONES_LABORALES, key="t1_laboral")
             
         st.divider()
         st.markdown("### 2️⃣ Demandas Estructurales y Prioridades para el País")
@@ -363,8 +359,8 @@ with tab1:
                 "ambito_territorial": sel_ambito,
                 "rango_edad": sel_edad,
                 "genero": sel_genero,
-                "nivel_educativo": sel_educacion,
-                "situacion_laboral": sel_laboral,
+                "nivel_educativo": "No especificado",
+                "situacion_laboral": "No especificado",
                 "p1_problema_region": p1_resp,
                 "p2_problema_familiar": p2_resp,
                 "p3_prioridad_gobierno": p3_resp,
@@ -417,16 +413,16 @@ with tab2:
         with c_f1:
             reg_filtro = st.selectbox("Filtrar Análisis por Región:", ["TODAS LAS REGIONES"] + REGIONES_PERU, key="f_reg_t1")
         with c_f2:
-            lab_filtro = st.selectbox("Filtrar por Situación Laboral:", ["TODOS LOS SECTORES"] + SITUACIONES_LABORALES, key="f_lab_t1")
+            amb_filtro = st.selectbox("Filtrar por Ámbito Territorial:", ["TODOS LOS ÁMBITOS"] + AMBITOS_TERRITORIALES, key="f_amb_t1")
             
         if not df_surveys.empty:
             df_p = df_surveys.copy()
             if reg_filtro != "TODAS LAS REGIONES":
                 df_p = df_p[df_p["region"] == reg_filtro]
-            if lab_filtro != "TODOS LOS SECTORES":
-                df_p = df_p[df_p["situacion_laboral"] == lab_filtro]
+            if amb_filtro != "TODOS LOS ÁMBITOS":
+                df_p = df_p[df_p["ambito_territorial"] == amb_filtro]
                 
-            st.info(f"📌 Analizando **{len(df_p)}** respuestas bajo los filtros seleccionados ({reg_filtro} — {lab_filtro.split('(')[0]})")
+            st.info(f"📌 Analizando **{len(df_p)}** respuestas bajo los filtros seleccionados ({reg_filtro} — {amb_filtro.split('(')[0]})")
             
             # Gráfica P1 (Problema Regional)
             p1_counts = df_p["p1_problema_region"].value_counts().reset_index()
@@ -475,27 +471,27 @@ with tab2:
         st.write("Descubre las divergencias de opinión entre jóvenes vs. adultos mayores, trabajadores informales vs. formales, y zonas rurales vs. urbanas:")
         
         if not df_surveys.empty:
-            df_lab_clean = df_surveys.copy()
-            df_lab_clean["Situación Laboral Corta"] = df_lab_clean["situacion_laboral"].apply(lambda x: x.split(" (")[0])
-            df_lab_clean["Prioridad al Gobierno"] = df_lab_clean["p3_prioridad_gobierno"]
-            df_lab_clean["Problema Familiar"] = df_lab_clean["p2_problema_familiar"]
-            df_lab_clean["Problema Regional"] = df_lab_clean["p1_problema_region"]
-            df_lab_clean["Ámbito Territorial"] = df_lab_clean["ambito_territorial"].apply(lambda x: x.split(" (")[0])
+            df_demo_clean = df_surveys.copy()
+            df_demo_clean["Prioridad al Gobierno"] = df_demo_clean["p3_prioridad_gobierno"]
+            df_demo_clean["Problema Familiar"] = df_demo_clean["p2_problema_familiar"]
+            df_demo_clean["Problema Regional"] = df_demo_clean["p1_problema_region"]
+            df_demo_clean["Ámbito Territorial"] = df_demo_clean["ambito_territorial"].apply(lambda x: x.split(" (")[0])
+            df_demo_clean["Género"] = df_demo_clean["genero"]
             
-            # Cruce 1: Situación Laboral vs. Prioridad del Gobierno (Ancho completo, horizontal y sin cortes)
+            # Cruce 1: Género vs. Prioridad del Gobierno (Ancho completo, horizontal y sin cortes)
             fig_c1 = px.bar(
-                df_lab_clean, y="Situación Laboral Corta", color="Prioridad al Gobierno",
-                title="1️⃣ ¿Qué Prioridad de Gobierno exigen los Trabajadores Informales (MYPE) vs. Formales vs. Agricultores?",
+                df_demo_clean, y="Género", color="Prioridad al Gobierno",
+                title="1️⃣ ¿Qué Prioridad de Gobierno exigen los Ciudadanos según su Género / Identidad?",
                 orientation="h", barmode="stack", color_discrete_sequence=px.colors.qualitative.Bold
             )
-            fig_c1.update_layout(height=480, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=20,t=60,b=60), legend=dict(orientation="h", yanchor="top", y=-0.25, xanchor="center", x=0.5))
+            fig_c1.update_layout(height=450, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.5)', font=dict(color="#CBD5E1"), margin=dict(l=10,r=20,t=60,b=60), legend=dict(orientation="h", yanchor="top", y=-0.25, xanchor="center", x=0.5))
             st.plotly_chart(fig_c1, use_container_width=True)
             
             st.markdown("<br/>", unsafe_allow_html=True)
             
             # Cruce 2: Rango Etario vs. Problema Familiar (Apilado debajo, ancho completo y sin cortes)
             fig_c2 = px.bar(
-                df_lab_clean, y="rango_edad", color="Problema Familiar",
+                df_demo_clean, y="rango_edad", color="Problema Familiar",
                 title="2️⃣ Problema Familiar por Rango Etario (Jóvenes vs. Adultos Mayores)",
                 orientation='h', barmode="stack", color_discrete_sequence=px.colors.qualitative.Vivid
             )
@@ -506,7 +502,7 @@ with tab2:
             
             # Cruce 3: Ámbito Territorial vs. Problema Regional (Apilado debajo, ancho completo y sin cortes)
             fig_c3 = px.bar(
-                df_lab_clean, y="Ámbito Territorial", color="Problema Regional",
+                df_demo_clean, y="Ámbito Territorial", color="Problema Regional",
                 title="3️⃣ Demandas por Ámbito (Urbano vs. Urbano-Marginal vs. Rural)",
                 orientation='h', barmode="group", color_discrete_sequence=px.colors.qualitative.Safe
             )
@@ -570,7 +566,7 @@ with tab2:
                         <h4 style="margin: 6px 0 8px 0; color: #F8FAFC;">"{row['p1_problema_region']}"</h4>
                         <p style="color: #CBD5E1; font-size: 0.96rem; line-height: 1.5; font-style: italic;">"{testimonio_str}"</p>
                         <div style="font-size: 0.78rem; color: #64748B; margin-top: 10px;">
-                            👤 Demografía: <b>{row['rango_edad']}</b> • {row['situacion_laboral'].split('(')[0]} • Origen: <code>{row['origen_registro']}</code>
+                            👤 Demografía: <b>{row['rango_edad']}</b> • {row.get('genero', 'N/A')} • Origen: <code>{row['origen_registro']}</code>
                         </div>
                     </div>
                     """, unsafe_allow_html=True)
@@ -597,7 +593,7 @@ with tab2:
                         <h4 style="margin: 6px 0 8px 0; color: #F8FAFC;">"{row['p1_problema_region']}"</h4>
                         <p style="color: #CBD5E1; font-size: 0.96rem; line-height: 1.5; font-style: italic;">"{row['testimonio_abierto']}"</p>
                         <div style="font-size: 0.78rem; color: #64748B; margin-top: 10px;">
-                            👤 Demografía: <b>{row['rango_edad']}</b> • {row['situacion_laboral'].split('(')[0]} • Origen: <code>{row['origen_registro']}</code>
+                            👤 Demografía: <b>{row['rango_edad']}</b> • {row.get('genero', 'N/A')} • Origen: <code>{row['origen_registro']}</code>
                         </div>
                     </div>
                     """, unsafe_allow_html=True)
@@ -649,5 +645,5 @@ with tab3:
     
     df_full = pd.DataFrame(surveys)
     if not df_full.empty:
-        df_mostrar = df_full[["survey_id", "region", "ambito_territorial", "situacion_laboral", "eje_asignado", "did_verificador", "origen_registro"]].head(25)
+        df_mostrar = df_full[["survey_id", "region", "ambito_territorial", "rango_edad", "genero", "eje_asignado", "did_verificador", "origen_registro"]].head(25)
         st.dataframe(df_mostrar, use_container_width=True)
