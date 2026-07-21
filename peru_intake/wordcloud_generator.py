@@ -136,3 +136,117 @@ def render_top_keywords_treemap(text, title="Top Conceptos y Términos Más Frec
         margin=dict(l=5, r=5, t=35, b=10)
     )
     st.plotly_chart(fig, use_container_width=True)
+
+REGION_COORDS = {
+    "Amazonas": {"lat": -6.2317, "lon": -77.8690},
+    "Áncash": {"lat": -9.5278, "lon": -77.5278},
+    "Apurímac": {"lat": -13.6339, "lon": -73.3644},
+    "Arequipa": {"lat": -16.4090, "lon": -71.5375},
+    "Ayacucho": {"lat": -13.1588, "lon": -74.2239},
+    "Cajamarca": {"lat": -7.1638, "lon": -78.5003},
+    "Callao (Provincia Constitucional)": {"lat": -12.0566, "lon": -77.1181},
+    "Cusco": {"lat": -13.5319, "lon": -71.9675},
+    "Huancavelica": {"lat": -12.7864, "lon": -74.9727},
+    "Huánuco": {"lat": -9.9306, "lon": -76.2422},
+    "Ica": {"lat": -14.0678, "lon": -75.7286},
+    "Junín": {"lat": -11.5415, "lon": -74.8839},
+    "La Libertad": {"lat": -7.8631, "lon": -78.5003},
+    "Lambayeque": {"lat": -6.7714, "lon": -79.8409},
+    "Lima Metropolitana": {"lat": -12.0464, "lon": -77.0428},
+    "Lima Provincias": {"lat": -11.1925, "lon": -77.6106},
+    "Loreto": {"lat": -4.1420, "lon": -74.5828},
+    "Madre de Dios": {"lat": -12.5933, "lon": -70.0350},
+    "Moquegua": {"lat": -17.1936, "lon": -70.9333},
+    "Pasco": {"lat": -10.6675, "lon": -76.2567},
+    "Piura": {"lat": -5.1945, "lon": -80.6328},
+    "Puno": {"lat": -15.8402, "lon": -70.0219},
+    "San Martín": {"lat": -6.4833, "lon": -76.3667},
+    "Tacna": {"lat": -18.0066, "lon": -70.2463},
+    "Tumbes": {"lat": -3.5669, "lon": -80.4515},
+    "Ucayali": {"lat": -8.3791, "lon": -74.5539}
+}
+
+def render_semantic_map_peru(df_surveys):
+    """
+    Genera un mapa georreferenciado del Perú y una tabla de auditoría con el Top 5 de palabras claves más repetidas por cada región.
+    """
+    if df_surveys.empty:
+        st.info("⚠️ No hay encuestas disponibles para calcular el mapa de palabras claves por región.")
+        return
+
+    map_data = []
+    
+    for reg_name, coords in REGION_COORDS.items():
+        df_reg = df_surveys[df_surveys["region"] == reg_name]
+        voces_cnt = len(df_reg)
+        
+        if voces_cnt > 0:
+            texto_reg = get_combined_text_from_surveys(df_reg.to_dict('records'))
+            words = []
+            for word in re.findall(r'\b[a-zA-ZáéíóúÁÉÍÓÚñÑ]{4,}\b', texto_reg.lower()):
+                if word not in STOPWORDS_ES:
+                    words.append(word)
+            
+            top5 = Counter(words).most_common(5)
+            if top5:
+                top1_kw = top5[0][0].capitalize()
+                top5_str = " | ".join([f"{idx+1}. {w.capitalize()} ({cnt})" for idx, (w, cnt) in enumerate(top5)])
+            else:
+                top1_kw = "General"
+                top5_str = "Sin palabras clave destacadas"
+            
+            eje_pred = df_reg["eje_nombre"].mode()[0] if "eje_nombre" in df_reg.columns and not df_reg["eje_nombre"].empty else "Variado"
+            
+            map_data.append({
+                "Región": reg_name,
+                "lat": coords["lat"],
+                "lon": coords["lon"],
+                "Voces Analizadas": voces_cnt,
+                "Top 1 Palabra Clave": top1_kw,
+                "Top 5 Palabras Claves": top5_str,
+                "Eje Predominante": eje_pred
+            })
+
+    if not map_data:
+        st.info("⚠️ Aún no se han registrado voces suficientes en las regiones continentales del Perú.")
+        return
+
+    df_map = pd.DataFrame(map_data)
+
+    st.markdown("#### 🗺️ Mapa Semántico del Perú: Top 5 Palabras Claves por Región")
+    st.write("Explora el mapa interactivo posicionando el cursor sobre cada departamento para visualizar las demandas exactas y el ranking de las 5 palabras más repetidas por la ciudadanía en esa localidad:")
+
+    fig = px.scatter_mapbox(
+        df_map,
+        lat="lat",
+        lon="lon",
+        hover_name="Región",
+        hover_data={
+            "lat": False,
+            "lon": False,
+            "Voces Analizadas": True,
+            "Top 1 Palabra Clave": True,
+            "Top 5 Palabras Claves": True,
+            "Eje Predominante": True
+        },
+        size="Voces Analizadas",
+        color="Top 1 Palabra Clave",
+        size_max=22,
+        zoom=4.2,
+        center=dict(lat=-9.19, lon=-75.01),
+        title="📍 Geografía Semántica: ¿Qué pide cada región del Perú?"
+    )
+    fig.update_layout(
+        mapbox_style="open-street-map",
+        height=520,
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(family="Inter", color="#E2E8F0"),
+        margin=dict(l=0, r=0, t=45, b=10)
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.markdown("<br/>", unsafe_allow_html=True)
+    st.markdown("##### 📋 Tabla Maestro: Ranking Top 5 de Palabras Claves por cada Región del Perú")
+    df_tabla = df_map[["Región", "Voces Analizadas", "Top 1 Palabra Clave", "Top 5 Palabras Claves", "Eje Predominante"]].sort_values(by="Voces Analizadas", ascending=False)
+    st.dataframe(df_tabla, use_container_width=True)

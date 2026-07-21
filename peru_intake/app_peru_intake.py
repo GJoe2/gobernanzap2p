@@ -26,7 +26,7 @@ from peru_intake.peru_demographics import (
 from peru_intake.nlp_peru_classifier import PeruNLPClassifier
 from peru_intake.speech_transcriber import PeruSpeechTranscriber
 from peru_intake.wordcloud_generator import (
-    render_wordcloud, render_top_keywords_treemap, get_combined_text_from_surveys
+    render_wordcloud, render_top_keywords_treemap, get_combined_text_from_surveys, render_semantic_map_peru
 )
 
 # Configuración de página Streamlit
@@ -397,7 +397,7 @@ with tab2:
     sub_t1, sub_t2, sub_t3, sub_t4, sub_t5 = st.tabs([
         "🇵🇪 Batería de las 3 Preguntas Estratégicas",
         "🔀 Cruces Sociodemográficos Multinivel",
-        "🎙️ Nube de Palabras y Transcripciones en Vivo",
+        "☁️ Nube de Palabras y Mapa Semántico",
         "🗣️ Muro Testimonial por Ejes Programáticos",
         "🗺️ Mapa y Puntos de Levantamiento"
     ])
@@ -515,13 +515,13 @@ with tab2:
     # SUB-TAB 3: NUBE DE PALABRAS Y TRANSCRIPCIONES EN VIVO
     # =========================================================
     with sub_t3:
-        st.markdown("#### ☁️ Inteligencia de Voz Cívica y Transcripciones en Vivo")
-        st.write("Selecciona tu región en el menú inferior para filtrar la Nube de Palabras, el Treemap de conceptos y visualizar las transcripciones literales de audios y testimonios:")
+        st.markdown("#### ☁️ Inteligencia Semántica: Nube de Palabras, Treemap y Mapa Georreferenciado")
+        st.write("Selecciona tu región para explorar la Nube de Palabras y el Treemap, o navega en el mapa interactivo inferior para ver el ranking del Top 5 de palabras claves en cada departamento del Perú:")
         
         c_menu1, c_menu2 = st.columns([1.6, 2])
         with c_menu1:
             reg_wc_filtro = st.selectbox(
-                "🔍 Selecciona Región para explorar Nube de Palabras y Transcripciones:",
+                "🔍 Selecciona Región para explorar Nube de Palabras y Treemap:",
                 ["🇵🇪 Todo el Perú (Consolidado Nacional)"] + REGIONES_PERU,
                 index=0,
                 key="wc_reg_select_v2"
@@ -552,26 +552,12 @@ with tab2:
                 title=f"Frecuencia de Conceptos: {nombre_vista}"
             )
                 
-            st.markdown("<br/>", unsafe_allow_html=True)
-            st.markdown(f"#### 🎙️ Transcripciones y Testimonios Literales: **{nombre_vista}** (`{len(df_wc)} registros transcritos`)")
+            st.markdown("<hr style='border-color: rgba(255,255,255,0.1); margin: 35px 0;'/>", unsafe_allow_html=True)
             
-            for idx, row in df_wc.head(12).iterrows():
-                if len(row.get("testimonio_abierto", "")) > 5 or len(row.get("p1_problema_region", "")) > 5:
-                    eje_col = EJES_IDEARIO_PERU.get(row["eje_asignado"], {}).get("color", "#A855F7")
-                    testimonio_str = row['testimonio_abierto'] if row.get('testimonio_abierto') else "Sin nota adicional de voz"
-                    st.markdown(f"""
-                    <div class="proposal-box" style="border-left-color: {eje_col};">
-                        <span class="badge-ng" style="background: {eje_col}25; color: {eje_col}; border-color: {eje_col};">{row['eje_nombre']} ({row['eje_asignado']})</span>
-                        <span style="float: right; font-size: 0.8rem; color: #94A3B8;">📍 <b>{row['region']}</b> | {row['ambito_territorial'].split('(')[0]} | 🕒 {row['timestamp'][:10]}</span>
-                        <h4 style="margin: 6px 0 8px 0; color: #F8FAFC;">"{row['p1_problema_region']}"</h4>
-                        <p style="color: #CBD5E1; font-size: 0.96rem; line-height: 1.5; font-style: italic;">"{testimonio_str}"</p>
-                        <div style="font-size: 0.78rem; color: #64748B; margin-top: 10px;">
-                            👤 Demografía: <b>{row['rango_edad']}</b> • {row.get('genero', 'N/A')} • Origen: <code>{row['origen_registro']}</code>
-                        </div>
-                    </div>
-                    """, unsafe_allow_html=True)
+            # Desplegar Mapa Semántico del Perú con Top 5 de palabras claves por regiones
+            render_semantic_map_peru(df_surveys)
         else:
-            st.warning(f"⚠️ No se encontraron testimonios o encuestas registradas para la región **{nombre_vista}** bajo los criterios seleccionados.")
+            st.warning(f"⚠️ No se encontraron encuestas registradas para la región **{nombre_vista}** bajo los criterios seleccionados.")
 
     # =========================================================
     # SUB-TAB 4: MURO TESTIMONIAL POR EJES PROGRAMÁTICOS
