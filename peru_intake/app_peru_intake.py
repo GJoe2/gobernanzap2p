@@ -140,6 +140,11 @@ modo_portal = st.sidebar.radio(
     ["👤 Autorregistro Ciudadano (Voz / Texto libre)", "🧑‍🌾 Captura en Campo (Activistas territoriales)"]
 )
 
+if "Activista" in modo_portal or "Captura en Campo" in modo_portal:
+    st.sidebar.caption("🧑‍🌾 **Tip de Campo:** No olvides georreferenciar tu punto (Lugar y GPS) en el formulario central para auditarlo en el Mapa.")
+else:
+    st.sidebar.caption("💡 **Tip Ciudadano:** Puedes llenar tus datos y enviarnos tu propuesta por texto o grabando un audio que la IA transcribirá.")
+
 st.sidebar.divider()
 st.sidebar.markdown("### 📊 Pulso y Calidad de Datos")
 if surveys:
@@ -186,6 +191,56 @@ tab1, tab2, tab3 = st.tabs([
 # TAB 1: FORMULARIO Y VOZ CÍVICA
 # -------------------------------------------------------------
 with tab1:
+    with st.expander("📖 ¿Cómo usar y llenar este formulario? (Guía Práctica paso a paso, Ejes del Ideario y Glosario de Términos)", expanded=False):
+        st.markdown("""
+        <div style='background: rgba(30, 41, 59, 0.65); padding: 18px 22px; border-radius: 12px; border: 1px solid rgba(148, 163, 184, 0.25); margin-bottom: 16px;'>
+            <h4 style='color: #F8FAFC; margin-top: 0; font-size: 1.15rem;'>📌 Paso a Paso según tu Modalidad de Ingreso</h4>
+            <div style='display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px;'>
+                <div style='flex: 1; min-width: 280px; background: rgba(15, 23, 42, 0.65); padding: 15px; border-radius: 10px; border-left: 4px solid #3B82F6;'>
+                    <b style='color: #60A5FA; font-size: 1rem;'>👤 1. Para Ciudadanos (Autorregistro):</b>
+                    <ol style='margin: 10px 0 0 18px; padding: 0; color: #CBD5E1; font-size: 0.92rem; line-height: 1.65;'>
+                        <li><b>Datos Demográficos:</b> Selecciona tu Región, Ámbito territorial (Urbano, Rural, etc.), Rango Etario y Situación Laboral.</li>
+                        <li><b>Las 3 Preguntas Estratégicas:</b> Escoge en las listas desplegables el problema principal de tu región, tu mayor preocupación familiar y tu prioridad inmediata para el Gobierno.</li>
+                        <li><b>Tu Voz o Propuesta Libre:</b> Puedes <b>grabar un audio por micrófono</b> (nuestra IA transcribirá tus palabras exactamente) o escribir en texto tu testimonio o solución.</li>
+                        <li><b>Registrar:</b> Haz clic en el botón inferior para sumar tu voz inmutable al padrón analítico del país.</li>
+                    </ol>
+                </div>
+                <div style='flex: 1; min-width: 280px; background: rgba(15, 23, 42, 0.65); padding: 15px; border-radius: 10px; border-left: 4px solid #10B981;'>
+                    <b style='color: #34D399; font-size: 1rem;'>🧑‍🌾 2. Para Activistas Territoriales (Captura en Campo):</b>
+                    <ol style='margin: 10px 0 0 18px; padding: 0; color: #CBD5E1; font-size: 0.92rem; line-height: 1.65;'>
+                        <li><b>Activar Modo:</b> En el menú lateral izquierdo, selecciona la opción <code>Captura en Campo (Activistas territoriales)</code>.</li>
+                        <li><b>Identificación del Activista:</b> Registra tu Nombre y Apellido, tu Región Base y tu celular/ID de contacto.</li>
+                        <li><b>Georeferenciación Territorial:</b> Escribe el lugar exacto de captura (Plaza, Mercado, Asamblea comunal). Si estás en campo, copia las coordenadas GPS (Latitud y Longitud) de Google Maps o de tu celular y pégalas en los campos numéricos para auditar el punto en la Pestaña 2.</li>
+                        <li><b>Entrevista Ágil:</b> Selecciona las opciones del ciudadano en segundos, graba su voz o toma nota rápida y haz clic en Guardar.</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <h4 style='color: #F8FAFC; margin: 24px 0 10px 0; font-size: 1.15rem;'>🏛️ Clasificación Automática con IA en los 10 Ejes Programáticos del Ideario</h4>
+            <p style='color: #94A3B8; font-size: 0.9rem; margin-top: 0;'>Cada vez que envías un testimonio por voz o texto, nuestro motor de Inteligencia Artificial analiza su contenido semántico y lo asigna orgánicamente al Eje Programático que mejor resuelve esa demanda:</p>
+            <div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.85rem;'>
+                <div style='background: rgba(239, 68, 68, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.3); color: #FCA5A5;'><b>E01: Reforma Judicial y Policial</b><br/>Depuración de corruptos, penas severas, seguridad ciudadana y justicia celeridosa.</div>
+                <div style='background: rgba(249, 115, 22, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(249, 115, 22, 0.3); color: #FDBA74;'><b>E02: Formalización Tributaria MYPE</b><br/>Régimen simple de un solo tributo, créditos blandos sin trabas y apoyo al emprendedor.</div>
+                <div style='background: rgba(16, 185, 129, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3); color: #6EE7B7;'><b>E03: Salud Primaria Universal</b><br/>Postas médicas bien equipadas, telemedicina, medicinas sin sobrecostos e historia unificada.</div>
+                <div style='background: rgba(59, 130, 246, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.3); color: #93C5FD;'><b>E04: Educación Técnica y Digital</b><br/>Currícula conectada con el mercado laboral, programación e inglés en los colegios.</div>
+                <div style='background: rgba(236, 72, 153, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(236, 72, 153, 0.3); color: #F472B6;'><b>E05: Agroindustria e Infraestructura Hídrica</b><br/>Canales de riego, represas, fertilizantes accesibles y articulación de cultivos al mercado.</div>
+                <div style='background: rgba(168, 85, 247, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(168, 85, 247, 0.3); color: #D8B4FE;'><b>E06: Conectividad y Corredores Logísticos</b><br/>Carreteras multicarril, puertos modernos, trenes interregionales y puentes duraderos.</div>
+                <div style='background: rgba(234, 179, 8, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(234, 179, 8, 0.3); color: #FDE047;'><b>E07: Soberanía Energética y Minería Limpia</b><br/>Industrialización nacional, canon minero directo a las comunidades y respeto ambiental.</div>
+                <div style='background: rgba(20, 184, 166, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(20, 184, 166, 0.3); color: #5EEAD4;'><b>E08: Seguridad Alimentaria y Desarrollo Rural</b><br/>Erradicación de la anemia infantil, apoyo al ganadero/campesino y cadenas de frío comunales.</div>
+                <div style='background: rgba(99, 102, 241, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.3); color: #C7D2FE;'><b>E09: Empleo Formal e Innovación</b><br/>Protección laboral inteligente, flexibilidad para contratar e impulso al ecosistema de startups.</div>
+                <div style='background: rgba(100, 116, 139, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(100, 116, 139, 0.3); color: #CBD5E1;'><b>E10: Modernización y Gobernanza Digital</b><br/>Estado digital sin papel, trámites ágiles en línea y transparencia pública en tiempo real.</div>
+            </div>
+            
+            <h4 style='color: #F8FAFC; margin: 24px 0 8px 0; font-size: 1.15rem;'>🔑 Glosario de Términos Clave y Auditoría de Calidad</h4>
+            <ul style='color: #CBD5E1; font-size: 0.92rem; line-height: 1.65; margin: 0; padding-left: 20px;'>
+                <li><b>Estándar DAMA-DMBOK v2:</b> Metodología internacional de Gestión y Auditoría de Datos. Garantiza que cada encuesta ingresada al padrón sea única, íntegra y esté blindada contra duplicaciones o manipulación artificial.</li>
+                <li><b>DID Verificador (Identidad Descentralizada):</b> Huella digital criptográfica asignada automáticamente a cada testimonio, certificando que la fecha, hora y origen territorial son inmutables y trazables.</li>
+                <li><b>Levantamiento Territorial Georreferenciado:</b> Registro en campo (plazas, ferias, barrios) acompañado de coordenadas GPS reales que alimentan el Mapa Interactivo de la Pestaña 2 para certificar la cobertura nacional auténtica.</li>
+                <li><b>Transcripción Literaria por Voz:</b> Tecnología de reconocimiento de voz de vanguardia que convierte audios ciudadanos en texto limpio, permitiendo que las expresiones genuinas de la gente alimenten las nubes de palabras y análisis del país.</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+    
     nombre_activista = ""
     region_activista = ""
     id_activista = ""
