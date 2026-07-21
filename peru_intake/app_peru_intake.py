@@ -137,11 +137,13 @@ st.sidebar.markdown("""
 
 modo_portal = st.sidebar.radio(
     "🛠️ Modalidad de Ingreso:",
-    ["👤 Autorregistro Ciudadano (Voz / Texto libre)", "🧑‍🌾 Captura en Campo (Activistas territoriales)"]
+    ["👤 Autorregistro Ciudadano (Voz / Texto libre)", "🧑‍🌾 Captura en Campo (Activistas territoriales)", "📖 ¿Cómo usar este formulario? (Guía y Ejes)"]
 )
 
 if "Activista" in modo_portal or "Captura en Campo" in modo_portal:
     st.sidebar.caption("🧑‍🌾 **Tip de Campo:** No olvides georreferenciar tu punto (Lugar y GPS) en el formulario central para auditarlo en el Mapa.")
+elif "Cómo usar" in modo_portal or "Guía" in modo_portal:
+    st.sidebar.caption("📖 **Modo Guía:** Estás visualizando el manual de instrucciones, pasos y ejes programáticos.")
 else:
     st.sidebar.caption("💡 **Tip Ciudadano:** Puedes llenar tus datos y enviarnos tu propuesta por texto o grabando un audio que la IA transcribirá.")
 
@@ -191,195 +193,203 @@ tab1, tab2, tab3 = st.tabs([
 # TAB 1: FORMULARIO Y VOZ CÍVICA
 # -------------------------------------------------------------
 with tab1:
-    with st.expander("📖 ¿Cómo usar y llenar este formulario? (Guía Práctica paso a paso, Ejes del Ideario y Glosario de Términos)", expanded=False):
+    if "Cómo usar" in modo_portal or "Guía" in modo_portal:
         st.markdown("""
-        <div style='background: rgba(30, 41, 59, 0.65); padding: 18px 22px; border-radius: 12px; border: 1px solid rgba(148, 163, 184, 0.25); margin-bottom: 16px;'>
-            <h4 style='color: #F8FAFC; margin-top: 0; font-size: 1.15rem;'>📌 Paso a Paso según tu Modalidad de Ingreso</h4>
-            <div style='display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px;'>
-                <div style='flex: 1; min-width: 280px; background: rgba(15, 23, 42, 0.65); padding: 15px; border-radius: 10px; border-left: 4px solid #3B82F6;'>
-                    <b style='color: #60A5FA; font-size: 1rem;'>👤 1. Para Ciudadanos (Autorregistro):</b>
-                    <ol style='margin: 10px 0 0 18px; padding: 0; color: #CBD5E1; font-size: 0.92rem; line-height: 1.65;'>
-                        <li><b>Datos Demográficos:</b> Selecciona tu Región, Ámbito territorial (Urbano, Rural, etc.), Rango Etario y Situación Laboral.</li>
-                        <li><b>Las 3 Preguntas Estratégicas:</b> Escoge en las listas desplegables el problema principal de tu región, tu mayor preocupación familiar y tu prioridad inmediata para el Gobierno.</li>
-                        <li><b>Tu Voz o Propuesta Libre:</b> Puedes <b>grabar un audio por micrófono</b> (nuestra IA transcribirá tus palabras exactamente) o escribir en texto tu testimonio o solución.</li>
-                        <li><b>Registrar:</b> Haz clic en el botón inferior para sumar tu voz inmutable al padrón analítico del país.</li>
-                    </ol>
-                </div>
-                <div style='flex: 1; min-width: 280px; background: rgba(15, 23, 42, 0.65); padding: 15px; border-radius: 10px; border-left: 4px solid #10B981;'>
-                    <b style='color: #34D399; font-size: 1rem;'>🧑‍🌾 2. Para Activistas Territoriales (Captura en Campo):</b>
-                    <ol style='margin: 10px 0 0 18px; padding: 0; color: #CBD5E1; font-size: 0.92rem; line-height: 1.65;'>
-                        <li><b>Activar Modo:</b> En el menú lateral izquierdo, selecciona la opción <code>Captura en Campo (Activistas territoriales)</code>.</li>
-                        <li><b>Identificación del Activista:</b> Registra tu Nombre y Apellido, tu Región Base y tu celular/ID de contacto.</li>
-                        <li><b>Georeferenciación Territorial:</b> Escribe el lugar exacto de captura (Plaza, Mercado, Asamblea comunal). Si estás en campo, copia las coordenadas GPS (Latitud y Longitud) de Google Maps o de tu celular y pégalas en los campos numéricos para auditar el punto en la Pestaña 2.</li>
-                        <li><b>Entrevista Ágil:</b> Selecciona las opciones del ciudadano en segundos, graba su voz o toma nota rápida y haz clic en Guardar.</li>
-                    </ol>
-                </div>
-            </div>
-            
-            <h4 style='color: #F8FAFC; margin: 24px 0 10px 0; font-size: 1.15rem;'>🏛️ Clasificación Automática con IA en los 10 Ejes Programáticos del Ideario</h4>
-            <p style='color: #94A3B8; font-size: 0.9rem; margin-top: 0;'>Cada vez que envías un testimonio por voz o texto, nuestro motor de Inteligencia Artificial analiza su contenido semántico y lo asigna orgánicamente al Eje Programático que mejor resuelve esa demanda:</p>
-            <div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.85rem;'>
-                <div style='background: rgba(239, 68, 68, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.3); color: #FCA5A5;'><b>E01: Reforma Judicial y Policial</b><br/>Depuración de corruptos, penas severas, seguridad ciudadana y justicia celeridosa.</div>
-                <div style='background: rgba(249, 115, 22, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(249, 115, 22, 0.3); color: #FDBA74;'><b>E02: Formalización Tributaria MYPE</b><br/>Régimen simple de un solo tributo, créditos blandos sin trabas y apoyo al emprendedor.</div>
-                <div style='background: rgba(16, 185, 129, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3); color: #6EE7B7;'><b>E03: Salud Primaria Universal</b><br/>Postas médicas bien equipadas, telemedicina, medicinas sin sobrecostos e historia unificada.</div>
-                <div style='background: rgba(59, 130, 246, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.3); color: #93C5FD;'><b>E04: Educación Técnica y Digital</b><br/>Currícula conectada con el mercado laboral, programación e inglés en los colegios.</div>
-                <div style='background: rgba(236, 72, 153, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(236, 72, 153, 0.3); color: #F472B6;'><b>E05: Agroindustria e Infraestructura Hídrica</b><br/>Canales de riego, represas, fertilizantes accesibles y articulación de cultivos al mercado.</div>
-                <div style='background: rgba(168, 85, 247, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(168, 85, 247, 0.3); color: #D8B4FE;'><b>E06: Conectividad y Corredores Logísticos</b><br/>Carreteras multicarril, puertos modernos, trenes interregionales y puentes duraderos.</div>
-                <div style='background: rgba(234, 179, 8, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(234, 179, 8, 0.3); color: #FDE047;'><b>E07: Soberanía Energética y Minería Limpia</b><br/>Industrialización nacional, canon minero directo a las comunidades y respeto ambiental.</div>
-                <div style='background: rgba(20, 184, 166, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(20, 184, 166, 0.3); color: #5EEAD4;'><b>E08: Seguridad Alimentaria y Desarrollo Rural</b><br/>Erradicación de la anemia infantil, apoyo al ganadero/campesino y cadenas de frío comunales.</div>
-                <div style='background: rgba(99, 102, 241, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.3); color: #C7D2FE;'><b>E09: Empleo Formal e Innovación</b><br/>Protección laboral inteligente, flexibilidad para contratar e impulso al ecosistema de startups.</div>
-                <div style='background: rgba(100, 116, 139, 0.12); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(100, 116, 139, 0.3); color: #CBD5E1;'><b>E10: Modernización y Gobernanza Digital</b><br/>Estado digital sin papel, trámites ágiles en línea y transparencia pública en tiempo real.</div>
-            </div>
-            
-            <h4 style='color: #F8FAFC; margin: 24px 0 8px 0; font-size: 1.15rem;'>🔑 Glosario de Términos Clave y Auditoría de Calidad</h4>
-            <ul style='color: #CBD5E1; font-size: 0.92rem; line-height: 1.65; margin: 0; padding-left: 20px;'>
-                <li><b>Estándar DAMA-DMBOK v2:</b> Metodología internacional de Gestión y Auditoría de Datos. Garantiza que cada encuesta ingresada al padrón sea única, íntegra y esté blindada contra duplicaciones o manipulación artificial.</li>
-                <li><b>DID Verificador (Identidad Descentralizada):</b> Huella digital criptográfica asignada automáticamente a cada testimonio, certificando que la fecha, hora y origen territorial son inmutables y trazables.</li>
-                <li><b>Levantamiento Territorial Georreferenciado:</b> Registro en campo (plazas, ferias, barrios) acompañado de coordenadas GPS reales que alimentan el Mapa Interactivo de la Pestaña 2 para certificar la cobertura nacional auténtica.</li>
-                <li><b>Transcripción Literaria por Voz:</b> Tecnología de reconocimiento de voz de vanguardia que convierte audios ciudadanos en texto limpio, permitiendo que las expresiones genuinas de la gente alimenten las nubes de palabras y análisis del país.</li>
-            </ul>
+        <div style="background: linear-gradient(135deg, rgba(30,41,59,0.85) 0%, rgba(15,23,42,0.95) 100%); padding: 24px 28px; border-radius: 16px; border: 1px solid rgba(148,163,184,0.3); margin-bottom: 24px;">
+            <h2 style="color: #38BDF8; margin-top: 0; font-size: 1.75rem;">📖 Guía Práctica y Manual de Uso de la Plataforma</h2>
+            <p style="color: #CBD5E1; font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">Bienvenido al espacio de instrucción ciudadana y territorial. Aquí podrás conocer el paso a paso para llenar la encuesta según tu rol, comprender los 10 Ejes Programáticos en los que nuestra Inteligencia Artificial clasifica cada testimonio, y dominar los estándares de auditoría de datos.</p>
         </div>
         """, unsafe_allow_html=True)
-    
-    nombre_activista = ""
-    region_activista = ""
-    id_activista = ""
-    lugar_exacto = ""
-    tipo_punto = ""
-    latitud_gps = ""
-    longitud_gps = ""
-    
-    if "Activista" in modo_portal or "Captura en Campo" in modo_portal:
-        st.markdown("<div style='background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; padding: 14px 18px; border-radius: 12px; margin-bottom: 20px;'>🧑‍🌾 <b>Modo Activista Territorial Activo:</b> Formulario optimizado para captura ágil en plazas, mercados y asambleas ciudadanas. Los datos ingresan al instante al padrón.</div>", unsafe_allow_html=True)
         
-        st.markdown("### 🧑‍🌾 Registro del Activista Territorial (Responsable del Levantamiento)")
-        c_act1, c_act2, c_act3 = st.columns(3)
-        with c_act1:
-            nombre_activista = st.text_input("👤 Nombre y Apellido del Activista:", placeholder="Ej. Carlos Mendoza Rivera", key="t1_nombre_act")
-        with c_act2:
-            region_activista = st.selectbox("📍 Región Base / Asignada al Activista:", REGIONES_PERU, key="t1_region_act")
-        with c_act3:
-            id_activista = st.text_input("📱 Celular / DNI o ID de Contacto (Opcional):", placeholder="Ej. 987654321", key="t1_id_act")
-            
-        st.markdown("#### 🗺️ Georeferenciación del Punto de Levantamiento en Campo")
-        c_geo1, c_geo2, c_geo3 = st.columns([2, 1.3, 1.3])
-        with c_geo1:
-            lugar_exacto = st.text_input("📍 Lugar del Levantamiento (Plaza, Mercado, Comunidad, Barrio):", placeholder="Ej. Plaza de Armas de Huamanga / Mercado Belén", key="t1_lugar_geo")
-        with c_geo2:
-            tipo_punto = st.selectbox("🏘️ Tipo de Espacio Social:", ["Plaza / Parque Público", "Mercado / Feria Comercial", "Asamblea Comunal / Sindicato", "Universidad / Instituto / Colegio", "Visita Domiciliaria / Barrio", "Paradero / Terminal Terrestre", "Otro Punto de Encuentro"], key="t1_tipo_geo")
-        with c_geo3:
-            st.markdown("<div style='font-size:0.8rem; color:#A1A1AA; margin-bottom:4px;'>Coordenadas GPS (Opcional):</div>", unsafe_allow_html=True)
-            c_lat, c_lon = st.columns(2)
-            with c_lat:
-                latitud_gps = st.text_input("Latitud (-12.04)", placeholder="-12.0463", key="t1_lat_geo", label_visibility="collapsed")
-            with c_lon:
-                longitud_gps = st.text_input("Longitud (-77.04)", placeholder="-77.0428", key="t1_lon_geo", label_visibility="collapsed")
-        st.caption("💡 **Tip para Activistas:** En campo, abre Google Maps o la brújula/GPS de tu celular en el punto exacto, toca la ubicación y pega aquí las coordenadas (Latitud y Longitud) para georreferenciar el levantamiento.")
-        st.divider()
+        st.subheader("📌 1. Paso a Paso según tu Modalidad de Ingreso")
+        g_c1, g_c2 = st.columns(2)
+        with g_c1:
+            st.info("""
+**👤 Para Ciudadanos (Autorregistro Libre):**
+1. **Datos Demográficos:** Selecciona tu Región, Ámbito territorial (Urbano, Rural, etc.), Rango Etario y Situación Laboral.
+2. **Las 3 Preguntas Estratégicas:** Escoge en las listas desplegables el problema principal de tu región, tu mayor preocupación familiar y tu prioridad inmediata para el Gobierno.
+3. **Tu Voz o Propuesta Libre:** Puedes **grabar un audio por micrófono** (nuestra IA transcribirá tus palabras) o escribir en texto tu solución.
+4. **Registrar:** Haz clic en el botón inferior para sumar tu voz inmutable al padrón analítico del país.
+            """)
+        with g_c2:
+            st.success("""
+**🧑‍🌾 Para Activistas Territoriales (Captura en Campo):**
+1. **Activar Modo:** En el menú lateral izquierdo, selecciona la opción `Captura en Campo (Activistas territoriales)`.
+2. **Identificación del Activista:** Registra tu Nombre y Apellido, tu Región Base y tu celular/ID de contacto.
+3. **Georeferenciación Territorial:** Escribe el lugar exacto de captura (Plaza, Mercado, Asamblea comunal). Si estás en campo, copia las coordenadas GPS (Latitud y Longitud) de Google Maps o de tu celular y pégalas para auditar el punto en la Pestaña 2.
+4. **Entrevista Ágil:** Selecciona las opciones del ciudadano en segundos, graba su voz o toma nota rápida y haz clic en Guardar.
+            """)
+        
+        st.markdown("<br/>", unsafe_allow_html=True)
+        st.subheader("🏛️ 2. Clasificación Automática IA en los 10 Ejes Programáticos del Ideario")
+        st.write("Cada vez que envías un testimonio por voz o texto, nuestro motor de Inteligencia Artificial analiza su contenido semántico y lo asigna orgánicamente al Eje Programático que mejor resuelve esa demanda:")
+        
+        e_c1, e_c2 = st.columns(2)
+        with e_c1:
+            st.markdown("""
+- **E01: Reforma Judicial y Policial:** Depuración de corruptos, penas severas, seguridad ciudadana y justicia celeridosa.
+- **E02: Formalización Tributaria MYPE:** Régimen simple de un solo tributo, créditos blandos sin trabas y apoyo al emprendedor.
+- **E03: Salud Primaria Universal:** Postas médicas bien equipadas, telemedicina, medicinas sin sobrecostos e historia unificada.
+- **E04: Educación Técnica y Digital:** Currícula conectada con el mercado laboral, programación e inglés en los colegios.
+- **E05: Agroindustria e Infraestructura Hídrica:** Canales de riego, represas, fertilizantes accesibles y articulación al mercado.
+            """)
+        with e_c2:
+            st.markdown("""
+- **E06: Conectividad y Corredores Logísticos:** Carreteras multicarril, puertos modernos, trenes interregionales y puentes duraderos.
+- **E07: Soberanía Energética y Minería Limpia:** Industrialización nacional, canon minero directo a las comunidades y respeto ambiental.
+- **E08: Seguridad Alimentaria y Desarrollo Rural:** Erradicación de la anemia infantil, apoyo al ganadero/campesino y cadenas de frío comunales.
+- **E09: Empleo Formal e Innovación:** Protección laboral inteligente, flexibilidad para contratar e impulso al ecosistema de startups.
+- **E10: Modernización y Gobernanza Digital:** Estado digital sin papel, trámites ágiles en línea y transparencia pública en tiempo real.
+            """)
+        
+        st.markdown("<br/>", unsafe_allow_html=True)
+        st.subheader("🔑 3. Glosario de Términos Clave y Auditoría de Calidad")
+        st.markdown("""
+- **Estándar DAMA-DMBOK v2:** Metodología internacional de Gestión y Auditoría de Datos. Garantiza que cada encuesta ingresada al padrón sea única, íntegra y esté blindada contra duplicaciones o manipulación artificial.
+- **DID Verificador (Identidad Descentralizada):** Huella digital criptográfica asignada automáticamente a cada testimonio, certificando que la fecha, hora y origen territorial son inmutables y trazables.
+- **Levantamiento Territorial Georreferenciado:** Registro en campo (plazas, ferias, barrios) acompañado de coordenadas GPS reales que alimentan el Mapa Interactivo de la Pestaña 2 para certificar la cobertura nacional auténtica.
+- **Transcripción Literaria por Voz:** Tecnología de reconocimiento de voz de vanguardia que convierte audios ciudadanos en texto limpio, permitiendo que las expresiones genuinas de la gente alimenten las nubes de palabras y análisis del país.
+        """)
     else:
-        st.subheader("💡 Conectá la realidad de tu provincia con soluciones reales")
-        
-    st.markdown("### 1️⃣ Variables Sociodemográficas de tu Región")
-    c_r1, c_r2, c_r3 = st.columns(3)
-    with c_r1:
-        sel_region = st.selectbox("Región / Departamento", REGIONES_PERU, key="t1_region")
-        sel_ambito = st.selectbox("Ámbito Territorial de Residencia", AMBITOS_TERRITORIALES, key="t1_ambito")
-    with c_r2:
-        sel_edad = st.selectbox("Rango Etario", RANGOS_ETARIOS, key="t1_edad")
-        sel_genero = st.selectbox("Género / Identidad", ["Femenino", "Masculino", "Prefiero no decir"], key="t1_genero")
-    with c_r3:
-        sel_educacion = st.selectbox("Nivel Educativo alcanzado", NIVELES_EDUCATIVOS, key="t1_educacion")
-        sel_laboral = st.selectbox("Situación Laboral / Actividad Económica", SITUACIONES_LABORALES, key="t1_laboral")
-        
-    st.divider()
-    st.markdown("### 2️⃣ Demandas Estructurales y Prioridades para el País")
+        nombre_activista = ""
+        region_activista = ""
+        id_activista = ""
+        lugar_exacto = ""
+        tipo_punto = ""
+        latitud_gps = ""
+        longitud_gps = ""
     
-    p1_resp = st.selectbox(PREGUNTAS_ESTRUCTURADAS["P1"]["pregunta"], PREGUNTAS_ESTRUCTURADAS["P1"]["opciones"], key="t1_p1")
-    p2_resp = st.selectbox(PREGUNTAS_ESTRUCTURADAS["P2"]["pregunta"], PREGUNTAS_ESTRUCTURADAS["P2"]["opciones"], key="t1_p2")
-    p3_resp = st.selectbox(PREGUNTAS_ESTRUCTURADAS["P3"]["pregunta"], PREGUNTAS_ESTRUCTURADAS["P3"]["opciones"], key="t1_p3")
-    
-    st.divider()
-    st.markdown("### 3️⃣ Testimonio Abierto y Transcripción Inteligente de Voz")
-    st.write("¿Quieres detallar un problema concreto, una denuncia o una propuesta para tu comunidad? Puedes redactarlo o **grabar/subir una nota de voz** para que nuestra IA lo transcriba y clasifique de forma orgánica:")
-    
-    # Opciones reactivas de voz o texto
-    metodo_ingreso = st.radio("Método de Ingreso:", ["✍️ Redactar por Texto Libre", "🎙️ Subir Archivo / Nota de Voz (.mp3, .wav, .ogg, .m4a)"], horizontal=True, key="t1_radio_metodo")
-    
-    testimonio_final = ""
-    
-    if metodo_ingreso == "✍️ Redactar por Texto Libre":
-        testimonio_final = st.text_area("Desarrollo de tu Testimonio o Propuesta Territorial", placeholder="Ej. En nuestro distrito necesitamos cámaras y créditos accesibles para que los emprendedores trabajen seguros y sin cobros ilegales...", height=120, key="t1_texto_libre")
-    else:
-        st.info("🎙️ **Transcripción Inteligente en Vivo:** Sube el archivo de audio grabado en tu celular o enviado por WhatsApp. El motor lo procesará a texto en segundos.")
-        audio_file = st.file_uploader("Seleccionar archivo de voz (.wav, .mp3, .ogg, .m4a)", type=["wav", "mp3", "ogg", "m4a"], key="t1_file_audio")
-        
-        # Botón independiente para transcribir si hay audio
-        if audio_file is not None:
-            if st.button("🎙️ Transcribir Audio y Convertir a Texto ahora", use_container_width=True, key="t1_btn_transcribir"):
-                with st.spinner("Procesando nota de voz y normalizando texto..."):
-                    transcriber = PeruSpeechTranscriber(language="es-PE")
-                    exito, texto_transcrito = transcriber.transcribe(audio_file.read(), audio_file.name)
-                    if exito:
-                        st.success("✅ ¡Nota de voz transcrita exitosamente!")
-                        st.session_state["transcripcion_temporal"] = texto_transcrito
-                    else:
-                        st.error(texto_transcrito)
-                        
-        # Mostrar cuadro editable con lo transcrito
-        texto_base = st.session_state.get("transcripcion_temporal", "")
-        testimonio_final = st.text_area("Texto Transcrito para Revisión / Edición (Puedes ajustar o sumar detalles antes de enviar):", value=texto_base, height=120, key="t1_texto_transcrito")
-
-    st.markdown("<br/>", unsafe_allow_html=True)
-    enviar_encuesta = st.button("🚀 Procesar e Indexar en el Padrón de Nueva Generación", type="primary", use_container_width=True, key="t1_btn_enviar")
-    
-    if enviar_encuesta:
-        # Ejecutar motor DAMA de similitud semántica y clasificación
-        classifier = PeruNLPClassifier()
-        similares = classifier.find_duplicate_or_similar(testimonio_final if testimonio_final else p1_resp, surveys, region=sel_region)
-        
-        if similares:
-            st.warning(f"🛡️ **[Alerta de Similitud Semántica DAMA]** Hemos detectado {len(similares)} testimonio(s) similar(es) en la región **{sel_region}**. Esto indica un fuerte consenso ciudadano sobre este punto:")
-            for sim in similares:
-                st.info(f"📌 **{sim['problema']}** (Eje: `{sim['eje_code']}`) — Similitud: **{int(sim['similarity_score']*100)}%**\n\n*Testimonio vecino:* \"{sim['testimonio'][:120]}...\"")
-                
-        # Clasificar Eje del Ideario
-        texto_analisis = f"{p1_resp} {testimonio_final}"
-        eje_code, confianza = classifier.classify_eje(texto_analisis)
-        eje_name = EJES_IDEARIO_PERU.get(eje_code, {}).get("nombre", eje_code)
-        
-        new_record = {
-            "survey_id": f"PERU-{uuid.uuid4().hex[:8].upper()}",
-            "region": sel_region,
-            "ambito_territorial": sel_ambito,
-            "rango_edad": sel_edad,
-            "genero": sel_genero,
-            "nivel_educativo": sel_educacion,
-            "situacion_laboral": sel_laboral,
-            "p1_problema_region": p1_resp,
-            "p2_problema_familiar": p2_resp,
-            "p3_prioridad_gobierno": p3_resp,
-            "testimonio_abierto": testimonio_final,
-            "origen_registro": "MODO_ACTIVISTA_TERRITORIAL" if ("Activista" in modo_portal or "Captura en Campo" in modo_portal) else "MODO_AUTOREGISTRO_CIUDADANO",
-            "activista_nombre": nombre_activista.strip() if nombre_activista else ("Activista No Especificado" if ("Activista" in modo_portal or "Captura en Campo" in modo_portal) else "N/A - Autorregistro"),
-            "activista_region": region_activista if region_activista else (sel_region if ("Activista" in modo_portal or "Captura en Campo" in modo_portal) else "N/A"),
-            "activista_contacto": id_activista.strip() if id_activista else "",
-            "georef_lugar": lugar_exacto.strip() if lugar_exacto else ("No Especificado" if ("Activista" in modo_portal or "Captura en Campo" in modo_portal) else "Autorregistro Online"),
-            "georef_tipo_espacio": tipo_punto if tipo_punto else "N/A",
-            "georef_latitud": latitud_gps.strip() if latitud_gps else "",
-            "georef_longitud": longitud_gps.strip() if longitud_gps else "",
-            "eje_asignado": eje_code,
-            "eje_nombre": eje_name,
-            "dama_verified": True,
-            "did_verificador": f"did:stacks:PERU_{uuid.uuid4().hex[:6]}",
-            "timestamp": datetime.now().isoformat()
-        }
-        surveys.append(new_record)
-        save_peru_data(surveys)
-        
-        st.success(f"🎉 ¡Voz y propuesta registradas con éxito para la región **{sel_region}**! Clasificado en el Eje: **{eje_name}** (`{eje_code}`).")
-        st.cache_data.clear()
         if "Activista" in modo_portal or "Captura en Campo" in modo_portal:
-            st.session_state["transcripcion_temporal"] = ""
+            st.markdown("<div style='background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10B981; padding: 14px 18px; border-radius: 12px; margin-bottom: 20px;'>🧑‍🌾 <b>Modo Activista Territorial Activo:</b> Formulario optimizado para captura ágil en plazas, mercados y asambleas ciudadanas. Los datos ingresan al instante al padrón.</div>", unsafe_allow_html=True)
+            
+            st.markdown("### 🧑‍🌾 Registro del Activista Territorial (Responsable del Levantamiento)")
+            c_act1, c_act2, c_act3 = st.columns(3)
+            with c_act1:
+                nombre_activista = st.text_input("👤 Nombre y Apellido del Activista:", placeholder="Ej. Carlos Mendoza Rivera", key="t1_nombre_act")
+            with c_act2:
+                region_activista = st.selectbox("📍 Región Base / Asignada al Activista:", REGIONES_PERU, key="t1_region_act")
+            with c_act3:
+                id_activista = st.text_input("📱 Celular / DNI o ID de Contacto (Opcional):", placeholder="Ej. 987654321", key="t1_id_act")
+                
+            st.markdown("#### 🗺️ Georeferenciación del Punto de Levantamiento en Campo")
+            c_geo1, c_geo2, c_geo3 = st.columns([2, 1.3, 1.3])
+            with c_geo1:
+                lugar_exacto = st.text_input("📍 Lugar del Levantamiento (Plaza, Mercado, Comunidad, Barrio):", placeholder="Ej. Plaza de Armas de Huamanga / Mercado Belén", key="t1_lugar_geo")
+            with c_geo2:
+                tipo_punto = st.selectbox("🏘️ Tipo de Espacio Social:", ["Plaza / Parque Público", "Mercado / Feria Comercial", "Asamblea Comunal / Sindicato", "Universidad / Instituto / Colegio", "Visita Domiciliaria / Barrio", "Paradero / Terminal Terrestre", "Otro Punto de Encuentro"], key="t1_tipo_geo")
+            with c_geo3:
+                st.markdown("<div style='font-size:0.8rem; color:#A1A1AA; margin-bottom:4px;'>Coordenadas GPS (Opcional):</div>", unsafe_allow_html=True)
+                c_lat, c_lon = st.columns(2)
+                with c_lat:
+                    latitud_gps = st.text_input("Latitud (-12.04)", placeholder="-12.0463", key="t1_lat_geo", label_visibility="collapsed")
+                with c_lon:
+                    longitud_gps = st.text_input("Longitud (-77.04)", placeholder="-77.0428", key="t1_lon_geo", label_visibility="collapsed")
+            st.caption("💡 **Tip para Activistas:** En campo, abre Google Maps o la brújula/GPS de tu celular en el punto exacto, toca la ubicación y pega aquí las coordenadas (Latitud y Longitud) para georreferenciar el levantamiento.")
+            st.divider()
+        else:
+            st.subheader("💡 Conectá la realidad de tu provincia con soluciones reales")
+            
+        st.markdown("### 1️⃣ Variables Sociodemográficas de tu Región")
+        c_r1, c_r2, c_r3 = st.columns(3)
+        with c_r1:
+            sel_region = st.selectbox("Región / Departamento", REGIONES_PERU, key="t1_region")
+            sel_ambito = st.selectbox("Ámbito Territorial de Residencia", AMBITOS_TERRITORIALES, key="t1_ambito")
+        with c_r2:
+            sel_edad = st.selectbox("Rango Etario", RANGOS_ETARIOS, key="t1_edad")
+            sel_genero = st.selectbox("Género / Identidad", ["Femenino", "Masculino", "Prefiero no decir"], key="t1_genero")
+        with c_r3:
+            sel_educacion = st.selectbox("Nivel Educativo alcanzado", NIVELES_EDUCATIVOS, key="t1_educacion")
+            sel_laboral = st.selectbox("Situación Laboral / Actividad Económica", SITUACIONES_LABORALES, key="t1_laboral")
+            
+        st.divider()
+        st.markdown("### 2️⃣ Demandas Estructurales y Prioridades para el País")
+        
+        p1_resp = st.selectbox(PREGUNTAS_ESTRUCTURADAS["P1"]["pregunta"], PREGUNTAS_ESTRUCTURADAS["P1"]["opciones"], key="t1_p1")
+        p2_resp = st.selectbox(PREGUNTAS_ESTRUCTURADAS["P2"]["pregunta"], PREGUNTAS_ESTRUCTURADAS["P2"]["opciones"], key="t1_p2")
+        p3_resp = st.selectbox(PREGUNTAS_ESTRUCTURADAS["P3"]["pregunta"], PREGUNTAS_ESTRUCTURADAS["P3"]["opciones"], key="t1_p3")
+        
+        st.divider()
+        st.markdown("### 3️⃣ Testimonio Abierto y Transcripción Inteligente de Voz")
+        st.write("¿Quieres detallar un problema concreto, una denuncia o una propuesta para tu comunidad? Puedes redactarlo o **grabar/subir una nota de voz** para que nuestra IA lo transcriba y clasifique de forma orgánica:")
+        
+        # Opciones reactivas de voz o texto
+        metodo_ingreso = st.radio("Método de Ingreso:", ["✍️ Redactar por Texto Libre", "🎙️ Subir Archivo / Nota de Voz (.mp3, .wav, .ogg, .m4a)"], horizontal=True, key="t1_radio_metodo")
+        
+        testimonio_final = ""
+        
+        if metodo_ingreso == "✍️ Redactar por Texto Libre":
+            testimonio_final = st.text_area("Desarrollo de tu Testimonio o Propuesta Territorial", placeholder="Ej. En nuestro distrito necesitamos cámaras y créditos accesibles para que los emprendedores trabajen seguros y sin cobros ilegales...", height=120, key="t1_texto_libre")
+        else:
+            st.info("🎙️ **Transcripción Inteligente en Vivo:** Sube el archivo de audio grabado en tu celular o enviado por WhatsApp. El motor lo procesará a texto en segundos.")
+            audio_file = st.file_uploader("Seleccionar archivo de voz (.wav, .mp3, .ogg, .m4a)", type=["wav", "mp3", "ogg", "m4a"], key="t1_file_audio")
+            
+            # Botón independiente para transcribir si hay audio
+            if audio_file is not None:
+                if st.button("🎙️ Transcribir Audio y Convertir a Texto ahora", use_container_width=True, key="t1_btn_transcribir"):
+                    with st.spinner("Procesando nota de voz y normalizando texto..."):
+                        transcriber = PeruSpeechTranscriber(language="es-PE")
+                        exito, texto_transcrito = transcriber.transcribe(audio_file.read(), audio_file.name)
+                        if exito:
+                            st.success("✅ ¡Nota de voz transcrita exitosamente!")
+                            st.session_state["transcripcion_temporal"] = texto_transcrito
+                        else:
+                            st.error(texto_transcrito)
+                            
+            # Mostrar cuadro editable con lo transcrito
+            texto_base = st.session_state.get("transcripcion_temporal", "")
+            testimonio_final = st.text_area("Texto Transcrito para Revisión / Edición (Puedes ajustar o sumar detalles antes de enviar):", value=texto_base, height=120, key="t1_texto_transcrito")
+            
+        st.markdown("<br/>", unsafe_allow_html=True)
+        enviar_encuesta = st.button("🚀 Procesar e Indexar en el Padrón de Nueva Generación", type="primary", use_container_width=True, key="t1_btn_enviar")
+        
+        if enviar_encuesta:
+            # Ejecutar motor DAMA de similitud semántica y clasificación
+            classifier = PeruNLPClassifier()
+            similares = classifier.find_duplicate_or_similar(testimonio_final if testimonio_final else p1_resp, surveys, region=sel_region)
+            
+            if similares:
+                st.warning(f"🛡️ **[Alerta de Similitud Semántica DAMA]** Hemos detectado {len(similares)} testimonio(s) similar(es) en la región **{sel_region}**. Esto indica un fuerte consenso ciudadano sobre este punto:")
+                for sim in similares:
+                    st.info(f"📌 **{sim['problema']}** (Eje: `{sim['eje_code']}`) — Similitud: **{int(sim['similarity_score']*100)}%**\n\n*Testimonio vecino:* \"{sim['testimonio'][:120]}...\"")
+                    
+            # Clasificar Eje del Ideario
+            texto_analisis = f"{p1_resp} {testimonio_final}"
+            eje_code, confianza = classifier.classify_eje(texto_analisis)
+            eje_name = EJES_IDEARIO_PERU.get(eje_code, {}).get("nombre", eje_code)
+            
+            new_record = {
+                "survey_id": f"PERU-{uuid.uuid4().hex[:8].upper()}",
+                "region": sel_region,
+                "ambito_territorial": sel_ambito,
+                "rango_edad": sel_edad,
+                "genero": sel_genero,
+                "nivel_educativo": sel_educacion,
+                "situacion_laboral": sel_laboral,
+                "p1_problema_region": p1_resp,
+                "p2_problema_familiar": p2_resp,
+                "p3_prioridad_gobierno": p3_resp,
+                "testimonio_abierto": testimonio_final,
+                "origen_registro": "MODO_ACTIVISTA_TERRITORIAL" if ("Activista" in modo_portal or "Captura en Campo" in modo_portal) else "MODO_AUTOREGISTRO_CIUDADANO",
+                "activista_nombre": nombre_activista.strip() if nombre_activista else ("Activista No Especificado" if ("Activista" in modo_portal or "Captura en Campo" in modo_portal) else "N/A - Autorregistro"),
+                "activista_region": region_activista if region_activista else (sel_region if ("Activista" in modo_portal or "Captura en Campo" in modo_portal) else "N/A"),
+                "activista_contacto": id_activista.strip() if id_activista else "",
+                "georef_lugar": lugar_exacto.strip() if lugar_exacto else ("No Especificado" if ("Activista" in modo_portal or "Captura en Campo" in modo_portal) else "Autorregistro Online"),
+                "georef_tipo_espacio": tipo_punto if tipo_punto else "N/A",
+                "georef_latitud": latitud_gps.strip() if latitud_gps else "",
+                "georef_longitud": longitud_gps.strip() if longitud_gps else "",
+                "eje_asignado": eje_code,
+                "eje_nombre": eje_name,
+                "dama_verified": True,
+                "did_verificador": f"did:stacks:PERU_{uuid.uuid4().hex[:6]}",
+                "timestamp": datetime.now().isoformat()
+            }
+            surveys.append(new_record)
+            save_peru_data(surveys)
+            
+            st.success(f"🎉 ¡Voz y propuesta registradas con éxito para la región **{sel_region}**! Clasificado en el Eje: **{eje_name}** (`{eje_code}`).")
+            st.cache_data.clear()
+            if "Activista" in modo_portal or "Captura en Campo" in modo_portal:
+                st.session_state["transcripcion_temporal"] = ""
 
 # -------------------------------------------------------------
 # TAB 2: PULSO TERRITORIAL Y DEMOGRAFÍA REGIONAL
